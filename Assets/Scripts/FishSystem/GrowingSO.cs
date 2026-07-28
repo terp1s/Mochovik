@@ -6,7 +6,7 @@ using UnityEngine;
 public struct FishVariation
 {
     public Sprite sprite;
-    public ItemData itemData;
+    public FishItem itemData;
 }
 
 [CreateAssetMenu(fileName = "GrowingSO", menuName = "Scriptable Objects/GrowingSO")]
@@ -16,4 +16,9 @@ public class GrowingSO : ScriptableObject
     public List<FishVariation> growthStages;
     public float growthInterval;
     public int MaxPhase => growthStages.Count;
+}
+
+public class ItemData
+{
+    public string name;
 }

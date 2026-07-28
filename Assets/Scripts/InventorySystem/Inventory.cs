@@ -2,40 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
 
     public Transform inventoryUI;
     public GameObject slotPrefab;
-    private List<ItemData> items = new();
+    private List<GameObject> items = new();
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void AddItem(ItemData item)
+    public void AddItem(InventoryItem item)
     {
-        items.Add(item);
-
         GameObject slot = Instantiate(slotPrefab, inventoryUI);
+        items.Add(slot);
 
-        slot.GetComponent<InventorySlotUI>()
-            .Setup(item);
+        slot.GetComponent<InventorySlot>()
+            .Setup(item, this);
     }
 
 
     public void RemoveItem(ItemData item)
     {
-        int index = items.IndexOf(item);
 
-        if (index == -1)
-            return;
-
-        items.RemoveAt(index);
-
-        Destroy(inventoryUI.GetChild(index).gameObject);
     }
 }
+
 

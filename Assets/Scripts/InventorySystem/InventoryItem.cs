@@ -1,18 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SlotItem : MonoBehaviour
+public class InventoryItem : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Sprite Sprite;
+    public InventorySlot Slot;
+    public ItemInteraction interaction;
+    public GameObject UiPrefab;
 
-    // Update is called once per frame
-    void Update()
+    protected void Awake()
     {
-        
+        Slot = this.GetComponentInParent<InventorySlot>();
+        GetComponent<Image>().sprite = Sprite;
+        GetComponent<Image>().preserveAspect = true;
     }
 }

@@ -8,6 +8,7 @@ public class Fish : MonoBehaviour, IInteractable
     public FishGrow grower;
     public BreakFish breaker;
     public SpawnFish spawner;
+    public GameObject FishUI;
 
     private bool isOnTree = true;
 
@@ -34,22 +35,22 @@ public class Fish : MonoBehaviour, IInteractable
         }
         else
         {
-            if (TryGetComponent(out ICollectible collectible))
+            FishCollect collect = GetComponent<FishCollect>();
+
+            FishItem dataToCollect = null;
+
+            if (breaker.IsBroken)
             {
-                ItemData dataToCollect;
-
-                if (breaker.IsBroken)
-                {
-                    dataToCollect = breaker.OverriddenItem;
-                }
-                else
-                {
-                    dataToCollect = grower.GetCurrentItemData();
-                }
-
-                collectible.Collect(dataToCollect);
-                spawner.hasFish = false;
+               // dataToCollect = breaker.OverriddenItem;
             }
+            else
+            {
+                dataToCollect = grower.GetCurrentItemData();
+            }
+
+            collect.Collect(dataToCollect);
+            spawner.hasFish = false;
+
         }
     }
 

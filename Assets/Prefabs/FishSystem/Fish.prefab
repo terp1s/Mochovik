@@ -56,6 +56,7 @@ MonoBehaviour:
   grower: {fileID: 8071356292902881766}
   breaker: {fileID: -2750739407137246542}
   spawner: {fileID: 0}
+  FishUI: {fileID: 0}
 --- !u!114 &4627142207598562597
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class FishCollect : MonoBehaviour, ICollectible
+public class FishCollect : MonoBehaviour
 {
-
-    public void Collect(ItemData inventoryFish)
+    public void Collect(FishItem inventoryFish)
     {
         Inventory.Instance.AddItem(inventoryFish);
         Destroy(gameObject);

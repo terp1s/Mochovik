@@ -51,6 +51,7 @@ public class SardinePuzzleManager : MonoBehaviour, IInteractable
 
     private void TryPlaceActiveDrag()
     {
+        /*
         UIDragInstance drag = FindObjectOfType<UIDragInstance>();
         if (drag == null || !isHovering) return;
         ItemData genericData = drag.GetData();
@@ -73,13 +74,14 @@ public class SardinePuzzleManager : MonoBehaviour, IInteractable
                 Destroy(drag.gameObject);
             }
         }
+        */
     }
     
     private void MarkTiles(Vector2Int coords, PuzzlePiece piece)
     {
-        foreach (Vector2Int offset in piece.data.shape)
+        foreach (Vector2Int offset in piece.shape)
         {
-            Vector2Int tilePos = offset + coords - piece.data.anchor;
+            Vector2Int tilePos = offset + coords - piece.anchor;
 
             gridTiles[tilePos.x, tilePos.y].PlacePiece(piece);
         }
@@ -106,9 +108,9 @@ public class SardinePuzzleManager : MonoBehaviour, IInteractable
     {
         PuzzlePiece occupyingPiece = gridTiles[coords.x, coords.y].currentPiece;
 
-        foreach (Vector2Int offset in occupyingPiece.data.shape)
+        foreach (Vector2Int offset in occupyingPiece.shape)
         {
-            Vector2Int tilePos = occupyingPiece.data.anchor + offset + coords; 
+            Vector2Int tilePos = occupyingPiece.anchor + offset + coords; 
 
             gridTiles[tilePos.x, tilePos.y].RemovePiece();
         }

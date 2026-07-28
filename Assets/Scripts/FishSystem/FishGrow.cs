@@ -41,7 +41,7 @@ public class FishGrow : MonoBehaviour
         if (growEvent != null) growEvent.cancelled = true;
     }
 
-    public ItemData GetCurrentItemData()
+    public FishItem GetCurrentItemData()
     {
         int index = Mathf.Clamp(currentStage - 1, 0, fishData.MaxPhase - 1);
         return fishData.growthStages[index].itemData;

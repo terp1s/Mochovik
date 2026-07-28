@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class PuzzlePiece : MonoBehaviour
 {
-    public PuzzlePieceData data;
     public bool isPlaced = false;
-    private RectTransform rectTransform;
+    public Vector2Int[] shape;
+    public Vector2Int anchor;
 
+    private RectTransform rectTransform;
+   
     private void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
