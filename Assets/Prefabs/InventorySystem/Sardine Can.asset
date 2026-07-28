@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bdbb1f2ae699d44e96b62bd9ff4a270, type: 3}
+  m_Name: Sardine Can
+  m_EditorClassIdentifier: 
+  itemName: Sardine Can
+  icon: {fileID: 21300000, guid: 78fe2454eb051eb449867a5808045b15, type: 3}
+  worldPrefab: {fileID: 0}
+  uiDragPrefab: {fileID: 0}
+  interactionType: 1
+  open: {fileID: 21300000, guid: 78fe2454eb051eb449867a5808045b15, type: 3}
+  closed: {fileID: 21300000, guid: 44bf018147205764b96e41885eb4eef4, type: 3}
