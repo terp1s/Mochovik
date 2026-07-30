@@ -14,10 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   growthStages:
-  - sprite: {fileID: 1852910275, guid: e25191929294d6a4fa1bd77f4df56e89, type: 3}
-    itemData: {fileID: 11400000, guid: f5f30db6f710fa248bb54e7f18bbdeae, type: 2}
-  - sprite: {fileID: -506348162, guid: e25191929294d6a4fa1bd77f4df56e89, type: 3}
-    itemData: {fileID: 11400000, guid: 49fd223093ed3df48989a3ab8bb005c4, type: 2}
-  - sprite: {fileID: 1557084197, guid: e25191929294d6a4fa1bd77f4df56e89, type: 3}
-    itemData: {fileID: 11400000, guid: c27864f480e40ec4fbfbd5d3a525a714, type: 2}
+  - {fileID: 2419378810762260809, guid: e181d2fff94137842a1717608c134703, type: 3}
+  - {fileID: 6078267991398937550, guid: 86369e93cdb524146baee9d7927dcbd3, type: 3}
+  - {fileID: 2306863412985090451, guid: bde2ab93a49de6c48ad70db8f8229669, type: 3}
   growthInterval: 1

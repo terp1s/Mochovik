@@ -13,9 +13,7 @@ MonoBehaviour:
   m_Name: FishBreakDatabase
   m_EditorClassIdentifier: 
   database:
-  - growthStage: 2
+  - growthStage: 3
     outcomes:
     - circumstance: 0
-      result:
-        brokenSprite: {fileID: 2123854749, guid: e25191929294d6a4fa1bd77f4df56e89, type: 3}
-        brokenItem: {fileID: 11400000, guid: 315645978eb96cf49b651d96b6cc6055, type: 2}
+      result: {fileID: 4784061086625677726, guid: ecab6e2c43c7f1a40abd725adc831dc3, type: 3}

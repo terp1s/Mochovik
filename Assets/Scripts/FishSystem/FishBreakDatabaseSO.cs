@@ -16,12 +16,12 @@ public class FishBreakDatabaseSO : ScriptableObject
     public class Outcome
     {
         public BreakCircumstance circumstance;
-        public BreakResult result;
+        public FishItem result;
     }
 
     public List<FishBreakMap> database;
 
-    public BreakResult GetBreakResult(int stage, BreakCircumstance circumstance)
+    public FishItem GetBreakResult(int stage, BreakCircumstance circumstance)
     {
         var map = database.Find(x => x.growthStage == stage);
         if (map != null)
@@ -33,11 +33,4 @@ public class FishBreakDatabaseSO : ScriptableObject
         Debug.LogError($"No break result found for {stage} under {circumstance}");
         return default;
     }
-}
-
-[System.Serializable]
-public struct BreakResult
-{
-    public Sprite brokenSprite;
-    public ItemData brokenItem;
 }

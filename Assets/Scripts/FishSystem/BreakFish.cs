@@ -46,7 +46,7 @@ public class BreakFish : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private FishGrow grower;
 
-    public ItemData OverriddenItem { get; private set; }
+    public FishItem OverriddenItem { get; private set; }
     public bool IsBroken { get; private set; }
 
     private void Awake()
@@ -61,14 +61,13 @@ public class BreakFish : MonoBehaviour
 
         int stage = grower.GetGrowthStage;
 
-        BreakResult result = breakDatabase.GetBreakResult(stage, circumstance);
+        FishItem result = breakDatabase.GetBreakResult(stage, circumstance);
 
-        if (result.brokenSprite != null)
+        if (result.Sprite != null)
         {
             IsBroken = true;
-            spriteRenderer.sprite = result.brokenSprite;
-            OverriddenItem = result.brokenItem; 
-
+            spriteRenderer.sprite = result.Sprite;
+            OverriddenItem = result; 
           
             CapsuleCollider2D col = GetComponent<CapsuleCollider2D>();
             SpriteColliderUtility.UpdateToSprite(col, spriteRenderer.sprite);

@@ -41,7 +41,7 @@ public class Fish : MonoBehaviour, IInteractable
 
             if (breaker.IsBroken)
             {
-               // dataToCollect = breaker.OverriddenItem;
+               dataToCollect = breaker.OverriddenItem;
             }
             else
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GridTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class GridTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDropHandler
 {
     public Vector2Int coordinates;
 
@@ -33,5 +33,10 @@ public class GridTile : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     public void OnPointerExit(PointerEventData eventData)
     {
         manager.StopHovering();
+    }
+
+    public void OnDrop(PointerEventData eventData)
+    {
+        manager.TryPlaceActiveDrag(coordinates, eventData.pointerDrag);
     }
 }

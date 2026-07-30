@@ -24,7 +24,7 @@ public class FishGrow : MonoBehaviour
     private void Grow()
     {
         var stageInfo = fishData.growthStages[currentStage];
-        spriteRenderer.sprite = stageInfo.sprite;
+        spriteRenderer.sprite = stageInfo.Sprite;
         
         currentStage++;
 
@@ -44,7 +44,7 @@ public class FishGrow : MonoBehaviour
     public FishItem GetCurrentItemData()
     {
         int index = Mathf.Clamp(currentStage - 1, 0, fishData.MaxPhase - 1);
-        return fishData.growthStages[index].itemData;
+        return fishData.growthStages[index];
     }
 
     public GrowingSO GetFishData()

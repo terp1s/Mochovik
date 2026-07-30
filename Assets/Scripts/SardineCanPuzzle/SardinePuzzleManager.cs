@@ -1,21 +1,27 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using System.Net.NetworkInformation;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public class SardinePuzzleManager : MonoBehaviour, IInteractable
+public class SardinePuzzleManager : MonoBehaviour
 {
     public GridTile[,] gridTiles;
     public Vector2Int currentHoverCoords;
     private bool isHovering;
     public GridMaker Grid;
+    public Image image;
+    public Sprite WinCan;
 
-    private void OnEnable() 
+    private void OnEnable()
     {
         if (Grid is not null)
         {
-           
+
             gridTiles = Grid.GetGrid();
 
             if (gridTiles is null)
@@ -42,58 +48,44 @@ public class SardinePuzzleManager : MonoBehaviour, IInteractable
         Debug.Log("Stopped Hovering");
     }
 
-    public void Interact()
+    public void TryPlaceActiveDrag(Vector2Int coords, GameObject fish)
     {
-        
-        TryPlaceActiveDrag();
-        
-    }
+        if (fish is null) { return; }
+        if (!fish.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzlePiece)) { return; }
+        if (!isHovering) return;
 
-    private void TryPlaceActiveDrag()
-    {
-        /*
-        UIDragInstance drag = FindObjectOfType<UIDragInstance>();
-        if (drag == null || !isHovering) return;
-        ItemData genericData = drag.GetData();
-
-        if (genericData is PuzzlePieceData pieceData)
+        if (CanFit(puzzlePiece, currentHoverCoords))
         {
-            if (CanFit(pieceData, currentHoverCoords))
-            {
-                GameObject piecePrefab = drag.GetData().uiDragPrefab;
+            puzzlePiece.SnapToPosition(gridTiles[currentHoverCoords.x, currentHoverCoords.y]);
+            puzzlePiece.isPlaced = true;
+            puzzlePiece.placedAt = coords;
+          
+            Debug.Log($"attached fish to {currentHoverCoords.x}, {currentHoverCoords.y}");
 
-
-                GameObject finalPiece = Instantiate(piecePrefab, this.transform);
-                PuzzlePiece pieceScript = finalPiece.GetComponent<PuzzlePiece>();
-
-                pieceScript.SnapToPosition(gridTiles[currentHoverCoords.x, currentHoverCoords.y].transform.position);
-                pieceScript.isPlaced = true;
-
-                MarkTiles(currentHoverCoords, pieceScript);
-
-                Destroy(drag.gameObject);
-            }
+            
+            MarkTiles(currentHoverCoords, puzzlePiece);
         }
-        */
+
+        CheckWin();
     }
-    
+
     private void MarkTiles(Vector2Int coords, PuzzlePiece piece)
     {
         foreach (Vector2Int offset in piece.shape)
         {
-            Vector2Int tilePos = offset + coords - piece.anchor;
+            Vector2Int tilePos = offset + coords - piece.anchorTile;
 
             gridTiles[tilePos.x, tilePos.y].PlacePiece(piece);
         }
     }
 
 
-    private bool CanFit(PuzzlePieceData pieceData, Vector2Int coords)
+    private bool CanFit(PuzzlePiece piece, Vector2Int coords)
     {
-        foreach (var coordinate in pieceData.shape)
+        foreach (var coordinate in piece.shape)
         {
-            int newX = coords.x + coordinate.x - pieceData.anchor.x;
-            int newY = coords.y + coordinate.y - pieceData.anchor.y;
+            int newX = coords.x + coordinate.x - piece.anchorTile.x;
+            int newY = coords.y + coordinate.y - piece.anchorTile.y;
 
             if (gridTiles[newX, newY].IsOccupied())
             {
@@ -102,23 +94,25 @@ public class SardinePuzzleManager : MonoBehaviour, IInteractable
         }
         return true;
     }
-   
 
-    public void RemovePiece(Vector2Int coords)
+    public void RemovePiece(PuzzlePiece piece)
     {
-        PuzzlePiece occupyingPiece = gridTiles[coords.x, coords.y].currentPiece;
+        if (!piece.isPlaced) return;
 
-        foreach (Vector2Int offset in occupyingPiece.shape)
+        foreach (Vector2Int offset in piece.shape)
         {
-            Vector2Int tilePos = occupyingPiece.anchor + offset + coords; 
+            int tileX = piece.placedAt.x + offset.x - piece.anchorTile.x;
+            int tileY = piece.placedAt.y + offset.y - piece.anchorTile.y;
 
-            gridTiles[tilePos.x, tilePos.y].RemovePiece();
+            gridTiles[tileX, tileY].RemovePiece();
         }
+
+        piece.isPlaced = false;
     }
 
     private bool IsSolved()
     {
-        foreach(var tile in gridTiles)
+        foreach (var tile in gridTiles)
         {
             if (!tile.IsOccupied())
             {
@@ -126,5 +120,16 @@ public class SardinePuzzleManager : MonoBehaviour, IInteractable
             }
         }
         return true;
-    }  
+    }
+
+    public void CheckWin()
+    {
+        if (IsSolved())
+        {
+            image.sprite = WinCan;
+
+            Grid.gameObject.SetActive(false);
+        }
+       
+    }
 }

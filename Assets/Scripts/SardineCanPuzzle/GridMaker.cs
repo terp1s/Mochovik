@@ -9,15 +9,13 @@ public class GridMaker : MonoBehaviour
     [SerializeField] private SardinePuzzleManager manager;
     private GridTile[,] _grid;
 
+    public static int TileSize = 88;
     
 
     public int width;
     public int height;
 
-    private void Awake()
-    {
-
-    }
+   
     public GridTile[,] GetGrid()
     {
         if (_grid == null)

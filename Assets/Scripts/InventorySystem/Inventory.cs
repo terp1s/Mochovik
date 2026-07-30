@@ -1,15 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 
-public class Inventory : MonoBehaviour
+public class Inventory : MonoBehaviour, IDropHandler
 {
     public static Inventory Instance;
 
     public Transform inventoryUI;
     public GameObject slotPrefab;
-    private List<GameObject> items = new();
+    private List<InventorySlot> slots = new();
 
     private void Awake()
     {
@@ -19,17 +21,28 @@ public class Inventory : MonoBehaviour
     public void AddItem(InventoryItem item)
     {
         GameObject slot = Instantiate(slotPrefab, inventoryUI);
-        items.Add(slot);
+        slots.Add(slot.GetComponent<InventorySlot>());
 
         slot.GetComponent<InventorySlot>()
             .Setup(item, this);
     }
 
 
-    public void RemoveItem(ItemData item)
+    public void RemoveItem(InventorySlot slot)
     {
+        slots.Remove(slot);
+        Destroy(slot.gameObject);
+    }
 
+    public void OnDrop(PointerEventData eventData)
+    {
+        if(eventData.pointerDrag.TryGetComponent<InventoryItem>(out InventoryItem item))
+        {
+            AddItem(item);
+            Destroy(eventData.pointerDrag);
+        }
     }
 }
+
 
 
