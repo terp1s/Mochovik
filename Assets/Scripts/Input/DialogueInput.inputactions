@@ -1,0 +1,46 @@
+{
+    "name": "DialogueInput",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "5b89074c-e468-4762-983d-c488cb417c0b",
+            "actions": [
+                {
+                    "name": "New action",
+                    "type": "Button",
+                    "id": "5c323863-8806-44e1-8037-1d46c94938a8",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "75bfa0d4-dc85-49a8-85ec-d3d542fdd8c6",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "New action",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard",
+            "bindingGroup": "Keyboard",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}
