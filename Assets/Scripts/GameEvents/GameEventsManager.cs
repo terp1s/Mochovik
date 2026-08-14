@@ -16,6 +16,7 @@ public class GameEventsManager : MonoBehaviour
             Debug.LogError("Found more than one Game Events Manager in the scene.");
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
 
         // initialize all events
        

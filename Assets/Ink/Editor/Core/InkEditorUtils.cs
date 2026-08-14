@@ -12,9 +12,16 @@ using Path = System.IO.Path;
 namespace Ink.UnityIntegration {
 	[InitializeOnLoad]
 	public static class InkEditorUtils {
-		class CreateInkAssetAction : EndNameEditAction {
-			public override void Action(int instanceId, string pathName, string resourceFile) {
-				var text = "";
+#if UNITY_6000_0_OR_NEWER
+		class CreateInkAssetAction : AssetCreationEndAction {
+			public override void Action(EntityId instanceId, string pathName, string resourceFile) {
+#else
+        class CreateInkAssetAction : EndNameEditAction
+        {
+            public override void Action(int instanceId, string pathName, string resourceFile)
+            {
+#endif
+                var text = "";
 				if(File.Exists(resourceFile)) {
 					StreamReader streamReader = new StreamReader(resourceFile);
 					text = streamReader.ReadToEnd();
@@ -73,10 +80,14 @@ namespace Ink.UnityIntegration {
 		
 		public static void CreateNewInkFileAtPathWithTemplateAndStartNameEditing (string filePath, string templateFileLocation) {
 			if(Path.GetExtension(filePath) != inkFileExtension) filePath += inkFileExtension;
-			ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0, ScriptableObject.CreateInstance<CreateInkAssetAction>(), filePath, InkBrowserIcons.inkFileIcon, templateFileLocation);
-		}
+#if UNITY_6000_0_OR_NEWER
+			ProjectWindowUtil.StartNameEditingIfProjectWindowExists(default, ScriptableObject.CreateInstance<CreateInkAssetAction>(), filePath, InkBrowserIcons.inkFileIcon, templateFileLocation);
+#else
+            ProjectWindowUtil.StartNameEditingIfProjectWindowExists(0, ScriptableObject.CreateInstance<CreateInkAssetAction>(), filePath, InkBrowserIcons.inkFileIcon, templateFileLocation);
+#endif
+        }
 
-		public static DefaultAsset CreateNewInkFileAtPath (string filePath, string text) {
+        public static DefaultAsset CreateNewInkFileAtPath (string filePath, string text) {
 			if(Path.GetExtension(filePath) != inkFileExtension) filePath += inkFileExtension;
 			var assetPath = CreateScriptAsset(filePath, text);
 			return AssetDatabase.LoadAssetAtPath<DefaultAsset>(assetPath);
