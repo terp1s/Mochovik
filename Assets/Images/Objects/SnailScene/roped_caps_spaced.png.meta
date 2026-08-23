@@ -1,0 +1,497 @@
+fileFormatVersion: 2
+guid: 7add4542ab6030640b7c59183f745a1c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7799626495674030234
+    second: roped_caps_spaced_0
+  - first:
+      213: -1803554448309036216
+    second: roped_caps_spaced_1
+  - first:
+      213: -8491116857882572630
+    second: roped_caps_spaced_2
+  - first:
+      213: -3598582565530734008
+    second: roped_caps_spaced_3
+  - first:
+      213: 3616172524857894437
+    second: roped_caps_spaced_4
+  - first:
+      213: -6828900363416773828
+    second: roped_caps_spaced_5
+  - first:
+      213: -4446391400721305782
+    second: roped_caps_spaced_6
+  - first:
+      213: 8146488912920085096
+    second: roped_caps_spaced_7
+  - first:
+      213: -2402687870924405399
+    second: roped_caps_spaced_8
+  - first:
+      213: 12153511319218959
+    second: roped_caps_spaced_9
+  - first:
+      213: 5915621034814987743
+    second: roped_caps_spaced_10
+  - first:
+      213: -9015501098309465287
+    second: roped_caps_spaced_11
+  - first:
+      213: -3861109623866608764
+    second: roped_caps_spaced_12
+  - first:
+      213: 3577722520612550310
+    second: roped_caps_spaced_13
+  - first:
+      213: 1007620853199229568
+    second: roped_caps_spaced_14
+  - first:
+      213: 214945056125978045
+    second: roped_caps_spaced_15
+  - first:
+      213: -2324952064377048689
+    second: roped_caps_spaced_16
+  - first:
+      213: 4593961792283805558
+    second: roped_caps_spaced_17
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: roped_caps_spaced_0
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 2168
+        width: 750
+        height: 2037
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a98106f39f6dd3c60800000000000000
+      internalID: 7799626495674030234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_1
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 3365
+        width: 749
+        height: 1479
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84bd67fe8cc78f6e0800000000000000
+      internalID: -1803554448309036216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_2
+      rect:
+        serializedVersion: 2
+        x: 2715
+        y: 2588
+        width: 749
+        height: 1946
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa80493a43e792a80800000000000000
+      internalID: -8491116857882572630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_3
+      rect:
+        serializedVersion: 2
+        x: 4065
+        y: 2707
+        width: 750
+        height: 1759
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84270a609344f0ec0800000000000000
+      internalID: -3598582565530734008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_4
+      rect:
+        serializedVersion: 2
+        x: 5078
+        y: 4060
+        width: 1005
+        height: 753
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 526aea680c93f2230800000000000000
+      internalID: 3616172524857894437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_5
+      rect:
+        serializedVersion: 2
+        x: 6214
+        y: 2098
+        width: 750
+        height: 2251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3bd100fc4fda31a0800000000000000
+      internalID: -6828900363416773828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_7
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 2388
+        width: 749
+        height: 961
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 862824d11842e0170800000000000000
+      internalID: 8146488912920085096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_9
+      rect:
+        serializedVersion: 2
+        x: 5307
+        y: 2353
+        width: 723
+        height: 1232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0ba4fcdd8d2b2000800000000000000
+      internalID: 12153511319218959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_12
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 1412
+        width: 750
+        height: 752
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 483b69e01459a6ac0800000000000000
+      internalID: -3861109623866608764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_13
+      rect:
+        serializedVersion: 2
+        x: 1275
+        y: 1634
+        width: 749
+        height: 752
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a6b60a4daf96a130800000000000000
+      internalID: 3577722520612550310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_14
+      rect:
+        serializedVersion: 2
+        x: 2703
+        y: 1827
+        width: 749
+        height: 752
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 082573fc3d9cbfd00800000000000000
+      internalID: 1007620853199229568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_15
+      rect:
+        serializedVersion: 2
+        x: 4065
+        y: 1954
+        width: 750
+        height: 752
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db58d94c363abf200800000000000000
+      internalID: 214945056125978045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_16
+      rect:
+        serializedVersion: 2
+        x: 5307
+        y: 1590
+        width: 723
+        height: 752
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f81bef26a6c1cbfd0800000000000000
+      internalID: -2324952064377048689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: roped_caps_spaced_17
+      rect:
+        serializedVersion: 2
+        x: 6214
+        y: 1327
+        width: 750
+        height: 752
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6770bc409e701cf30800000000000000
+      internalID: 4593961792283805558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e0ace403aa284804cad7b8abf099a9c6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      roped_caps_spaced_0: 7799626495674030234
+      roped_caps_spaced_1: -1803554448309036216
+      roped_caps_spaced_10: 5915621034814987743
+      roped_caps_spaced_11: -9015501098309465287
+      roped_caps_spaced_12: -3861109623866608764
+      roped_caps_spaced_13: 3577722520612550310
+      roped_caps_spaced_14: 1007620853199229568
+      roped_caps_spaced_15: 214945056125978045
+      roped_caps_spaced_16: -2324952064377048689
+      roped_caps_spaced_17: 4593961792283805558
+      roped_caps_spaced_2: -8491116857882572630
+      roped_caps_spaced_3: -3598582565530734008
+      roped_caps_spaced_4: 3616172524857894437
+      roped_caps_spaced_5: -6828900363416773828
+      roped_caps_spaced_6: -4446391400721305782
+      roped_caps_spaced_7: 8146488912920085096
+      roped_caps_spaced_8: -2402687870924405399
+      roped_caps_spaced_9: 12153511319218959
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -9,7 +9,6 @@ public class FishItem : InventoryItem, IBeginDragHandler, IDragHandler, IEndDrag
 {
     public PuzzlePiece puzzlePiece;
     private CanvasGroup canvasGroup;
-    private Transform originalParent;
 
     protected new void Awake()
     {
@@ -21,7 +20,7 @@ public class FishItem : InventoryItem, IBeginDragHandler, IDragHandler, IEndDrag
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        SardinePuzzleManager manager = FindObjectOfType<SardinePuzzleManager>();
+        SardinePuzzleManager manager = FindAnyObjectByType<SardinePuzzleManager>();
 
         if (puzzlePiece.isPlaced)
         {
@@ -31,7 +30,6 @@ public class FishItem : InventoryItem, IBeginDragHandler, IDragHandler, IEndDrag
 
         GetComponent<RectTransform>().sizeDelta = puzzlePiece.Size;
         canvasGroup.blocksRaycasts = false;
-        originalParent = transform.parent;
         transform.SetParent(GetComponentInParent<Canvas>().transform, true);
         canvasGroup.blocksRaycasts = false;
         Debug.Log($"{this.gameObject.name} drag from inventory begun");

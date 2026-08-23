@@ -34,6 +34,7 @@ public class SardinePuzzleManager : MonoBehaviour
             Debug.LogError("Grid reference is missing on SardinePuzzleManager!");
         }
     }
+    /*
 
     public void HoverTile(Vector2Int coords)
     {
@@ -47,20 +48,21 @@ public class SardinePuzzleManager : MonoBehaviour
         isHovering = false;
         Debug.Log("Stopped Hovering");
     }
+    */
 
     public void TryPlaceActiveDrag(Vector2Int coords, GameObject fish)
     {
         if (fish is null) { return; }
         if (!fish.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzlePiece)) { return; }
-        if (!isHovering) return;
+        //if (!isHovering) return;
 
-        if (CanFit(puzzlePiece, currentHoverCoords))
+        if (CanFit(puzzlePiece, coords))
         {
-            puzzlePiece.SnapToPosition(gridTiles[currentHoverCoords.x, currentHoverCoords.y]);
+            puzzlePiece.SnapToPosition(gridTiles[currentHoverCoords.x, coords.y]);
             puzzlePiece.isPlaced = true;
             puzzlePiece.placedAt = coords;
           
-            Debug.Log($"attached fish to {currentHoverCoords.x}, {currentHoverCoords.y}");
+            Debug.Log($"attached fish to {currentHoverCoords.x}, {coords.y}");
 
             
             MarkTiles(currentHoverCoords, puzzlePiece);

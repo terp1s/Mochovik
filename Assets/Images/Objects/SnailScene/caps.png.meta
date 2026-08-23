@@ -1,0 +1,474 @@
+fileFormatVersion: 2
+guid: 789f1d32695518749a3aa4238bfa536b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7009392927338342624
+    second: caps_0
+  - first:
+      213: -5780580169434612144
+    second: caps_1
+  - first:
+      213: -733576385617747750
+    second: caps_2
+  - first:
+      213: 4003336290696950271
+    second: caps_3
+  - first:
+      213: 6243022343081661668
+    second: caps_4
+  - first:
+      213: -3271844975061933564
+    second: caps_5
+  - first:
+      213: 5811888152297535040
+    second: caps_6
+  - first:
+      213: 1786539603503594127
+    second: caps_7
+  - first:
+      213: -4830548168607861091
+    second: caps_8
+  - first:
+      213: 2171543362991071965
+    second: caps_9
+  - first:
+      213: -4477946359120986305
+    second: caps_10
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: caps_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3338
+        width: 1000
+        height: 1009
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 027dcda1542a9be90800000000000000
+      internalID: -7009392927338342624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_1
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 4190
+        width: 1005
+        height: 1003
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05ebe2576f047cfa0800000000000000
+      internalID: -5780580169434612144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_2
+      rect:
+        serializedVersion: 2
+        x: 3228
+        y: 3879
+        width: 1005
+        height: 1005
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad0a3a7f920d1d5f0800000000000000
+      internalID: -733576385617747750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_3
+      rect:
+        serializedVersion: 2
+        x: 5833
+        y: 3649
+        width: 1067
+        height: 1029
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff1fb635525be8730800000000000000
+      internalID: 4003336290696950271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_4
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 2200
+        width: 1005
+        height: 1008
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e4953c7ebba3a650800000000000000
+      internalID: 6243022343081661668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_5
+      rect:
+        serializedVersion: 2
+        x: 2247
+        y: 2870
+        width: 1005
+        height: 1008
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402694584521892d0800000000000000
+      internalID: -3271844975061933564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_6
+      rect:
+        serializedVersion: 2
+        x: 4626
+        y: 2631
+        width: 967
+        height: 1005
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 046fef75b79f7a050800000000000000
+      internalID: 5811888152297535040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 621
+        width: 1000
+        height: 1005
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8abffbcd401bc810800000000000000
+      internalID: 1786539603503594127
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_8
+      rect:
+        serializedVersion: 2
+        x: 1321
+        y: 918
+        width: 1005
+        height: 1005
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96f6b3b80276fcb0800000000000000
+      internalID: -4830548168607861091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_9
+      rect:
+        serializedVersion: 2
+        x: 3228
+        y: 1533
+        width: 1005
+        height: 1005
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd2a07dee2fd22e10800000000000000
+      internalID: 2171543362991071965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_10
+      rect:
+        serializedVersion: 2
+        x: 4626
+        y: 976
+        width: 967
+        height: 1005
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3ff655f2832bd1c0800000000000000
+      internalID: -4477946359120986305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_11
+      rect:
+        serializedVersion: 2
+        x: 5833
+        y: 624
+        width: 1005
+        height: 1004
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d87e8faac82f04d4a9db4ccb0be93663
+      internalID: 236037263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_12
+      rect:
+        serializedVersion: 2
+        x: 2202
+        y: 206
+        width: 1033
+        height: 1067
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8334c955a9a901340840d7f8dc0c7a1d
+      internalID: 1622684639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: caps_13
+      rect:
+        serializedVersion: 2
+        x: 4042
+        y: 135
+        width: 1005
+        height: 1008
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f377840da0ccb41a4ecb3b79ae7055
+      internalID: -198773576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: bc5a8fcabbf38f24694fa4863642658b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":1.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":2,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      caps_0: -7009392927338342624
+      caps_1: -5780580169434612144
+      caps_10: -4477946359120986305
+      caps_11: 236037263
+      caps_12: 1622684639
+      caps_13: -198773576
+      caps_2: -733576385617747750
+      caps_3: 4003336290696950271
+      caps_4: 6243022343081661668
+      caps_5: -3271844975061933564
+      caps_6: 5811888152297535040
+      caps_7: 1786539603503594127
+      caps_8: -4830548168607861091
+      caps_9: 2171543362991071965
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
