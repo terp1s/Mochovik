@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public class Inventory : MonoBehaviour, IDropHandler
+public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
 
@@ -33,7 +33,7 @@ public class Inventory : MonoBehaviour, IDropHandler
         slots.Remove(slot);
         Destroy(slot.gameObject);
     }
-
+    /*
     public void OnDrop(PointerEventData eventData)
     {
         if(eventData.pointerDrag.TryGetComponent<InventoryItem>(out InventoryItem item))
@@ -41,7 +41,7 @@ public class Inventory : MonoBehaviour, IDropHandler
             AddItem(item);
             Destroy(eventData.pointerDrag);
         }
-    }
+    }*/
 }
 
 

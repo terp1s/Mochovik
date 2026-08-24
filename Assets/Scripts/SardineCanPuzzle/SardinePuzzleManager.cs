@@ -53,7 +53,7 @@ public class SardinePuzzleManager : MonoBehaviour
     public void TryPlaceActiveDrag(Vector2Int coords, GameObject fish)
     {
         if (fish is null) { return; }
-        if (!fish.TryGetComponent<PuzzlePiece>(out PuzzlePiece puzzlePiece)) { return; }
+        if (!fish.TryGetComponent<SardinePuzzlePiece>(out SardinePuzzlePiece puzzlePiece)) { return; }
         //if (!isHovering) return;
 
         if (CanFit(puzzlePiece, coords))
@@ -71,7 +71,7 @@ public class SardinePuzzleManager : MonoBehaviour
         CheckWin();
     }
 
-    private void MarkTiles(Vector2Int coords, PuzzlePiece piece)
+    private void MarkTiles(Vector2Int coords, SardinePuzzlePiece piece)
     {
         foreach (Vector2Int offset in piece.shape)
         {
@@ -82,7 +82,7 @@ public class SardinePuzzleManager : MonoBehaviour
     }
 
 
-    private bool CanFit(PuzzlePiece piece, Vector2Int coords)
+    private bool CanFit(SardinePuzzlePiece piece, Vector2Int coords)
     {
         foreach (var coordinate in piece.shape)
         {
@@ -97,7 +97,7 @@ public class SardinePuzzleManager : MonoBehaviour
         return true;
     }
 
-    public void RemovePiece(PuzzlePiece piece)
+    public void RemovePiece(SardinePuzzlePiece piece)
     {
         if (!piece.isPlaced) return;
 

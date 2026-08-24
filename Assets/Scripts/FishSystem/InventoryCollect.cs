@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class FishCollect : MonoBehaviour
+public class InventoryCollect : MonoBehaviour
 {
-    public void Collect(FishItem inventoryFish)
+    public void Collect(InventoryItem inventoryItem)
     {
-        Inventory.Instance.AddItem(inventoryFish);
+        Inventory.Instance.AddItem(inventoryItem);
         Destroy(gameObject);
     }
 

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 2377565826548130614}
   - component: {fileID: -1440693943493303296}
   - component: {fileID: -2938411059643294907}
-  - component: {fileID: -8474792649290143873}
   m_Layer: 5
   m_Name: SmallFishUI
   m_TagString: Untagged
@@ -127,17 +126,3 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!114 &-8474792649290143873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8579658110975986706}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AspectMode: 3
-  m_AspectRatio: 1

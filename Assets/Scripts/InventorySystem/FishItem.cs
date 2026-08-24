@@ -4,21 +4,18 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 
-public enum ItemInteraction { Click, Drag }
-public class FishItem : InventoryItem, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class FishItem : InventoryItem
 {
-    public PuzzlePiece puzzlePiece;
-    private CanvasGroup canvasGroup;
+    public SardinePuzzlePiece puzzlePiece;
 
     protected new void Awake()
     {
         base.Awake();
-        interaction = ItemInteraction.Drag;
-        puzzlePiece = GetComponent<PuzzlePiece>();
+        puzzlePiece = GetComponent<SardinePuzzlePiece>();
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public override void OnBeginDrag(PointerEventData eventData)
     {
         SardinePuzzleManager manager = FindAnyObjectByType<SardinePuzzleManager>();
 
@@ -29,23 +26,12 @@ public class FishItem : InventoryItem, IBeginDragHandler, IDragHandler, IEndDrag
         }
 
         GetComponent<RectTransform>().sizeDelta = puzzlePiece.Size;
-        canvasGroup.blocksRaycasts = false;
-        transform.SetParent(GetComponentInParent<Canvas>().transform, true);
-        canvasGroup.blocksRaycasts = false;
-        Debug.Log($"{this.gameObject.name} drag from inventory begun");
+        base.OnBeginDrag(eventData);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public override void OnEndDrag(PointerEventData eventData)
     {
-        //Debug.Log($"{this.gameObject.name} is being dragged from inventory");
-        UiRectTransform.anchoredPosition += eventData.delta;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        canvasGroup.blocksRaycasts = true;
-
-        Debug.Log($"{this.gameObject.name} was dragged from inventory");
+        base.OnEndDrag(eventData);
 
         if (!puzzlePiece.isPlaced)
         {

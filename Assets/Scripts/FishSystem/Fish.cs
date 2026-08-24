@@ -35,7 +35,7 @@ public class Fish : MonoBehaviour, IInteractable
         }
         else
         {
-            FishCollect collect = GetComponent<FishCollect>();
+            InventoryCollect collect = GetComponent<InventoryCollect>();
 
             FishItem dataToCollect = null;
 

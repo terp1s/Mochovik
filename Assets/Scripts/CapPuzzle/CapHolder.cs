@@ -1,25 +1,18 @@
 using UnityEngine;
+using UnityEngine.AdaptivePerformance;
 using UnityEngine.EventSystems;
 
 public class CapHolder : MonoBehaviour, IDropHandler
 {
-    public CapPuzzleManager manager;
+    public CapPuzzle manager;
     public CapPuzzlePiece cap;
     public bool IsOccupied => cap is not null;
 
     private void Awake()
     {
-        manager = FindAnyObjectByType<CapPuzzleManager>();
+        manager = FindAnyObjectByType<CapPuzzle>();
         cap = GetComponentInChildren<CapPuzzlePiece>();
     }
-    public bool TryAssignCap(CapPuzzlePiece newCap)
-    {
-        if(IsOccupied) { return false; }
-
-        cap = newCap;
-        return true;
-    }
-
     public void RemoveCap()
     {
         if(cap != null)
@@ -31,7 +24,17 @@ public class CapHolder : MonoBehaviour, IDropHandler
     public void OnDrop(PointerEventData eventData)
     {
         Debug.Log("Dropped  on " + gameObject.name);
+        GameObject drag = eventData.pointerDrag;
 
-        manager.TryPlaceActiveDrag(this, eventData.pointerDrag);
+        if (drag is null) { return; }
+        if (!drag.TryGetComponent<CapPuzzlePiece>(out CapPuzzlePiece capPuzzlePiece)) { return; }
+
+        if (!IsOccupied)
+        {
+            cap = capPuzzlePiece;
+            capPuzzlePiece.AttachTo(this);
+            manager.CheckPuzzleCompletion();
+        }
+
     }
 }

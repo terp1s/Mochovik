@@ -7,7 +7,7 @@ public class GridTile : MonoBehaviour,/* IPointerEnterHandler, IPointerExitHandl
 {
     public Vector2Int coordinates;
 
-    public PuzzlePiece currentPiece;
+    public SardinePuzzlePiece currentPiece;
     public SardinePuzzleManager manager;
 
     public bool IsOccupied()
@@ -15,7 +15,7 @@ public class GridTile : MonoBehaviour,/* IPointerEnterHandler, IPointerExitHandl
         return currentPiece is not null;
     }
 
-    public void PlacePiece(PuzzlePiece piece)
+    public void PlacePiece(SardinePuzzlePiece piece)
     {
         currentPiece = piece;   
     }

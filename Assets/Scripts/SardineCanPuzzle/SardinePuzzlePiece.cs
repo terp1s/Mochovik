@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PuzzlePiece : MonoBehaviour, IPointerClickHandler
+public class SardinePuzzlePiece : MonoBehaviour, IPointerClickHandler
 {
     public bool isPlaced = false;
     public Vector2Int[] shape;
@@ -77,6 +77,7 @@ public class PuzzlePiece : MonoBehaviour, IPointerClickHandler
         float pivotOffsetY = centerCoord.y - (float)anchorCoord.y;
 
         fishRect.localPosition += new Vector3(pivotOffsetX, pivotOffsetY, 0);
+
         isPlaced = true;
     }
     private Vector2 GetCenterCoordinates()
