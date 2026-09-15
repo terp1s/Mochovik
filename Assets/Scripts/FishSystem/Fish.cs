@@ -35,8 +35,6 @@ public class Fish : MonoBehaviour, IInteractable
         }
         else
         {
-            InventoryCollect collect = GetComponent<InventoryCollect>();
-
             FishItem dataToCollect = null;
 
             if (breaker.IsBroken)
@@ -48,7 +46,9 @@ public class Fish : MonoBehaviour, IInteractable
                 dataToCollect = grower.GetCurrentItemData();
             }
 
-            collect.Collect(dataToCollect);
+            Inventory.Instance.AddItem(dataToCollect);
+            Destroy(gameObject);
+
             spawner.hasFish = false;
 
         }

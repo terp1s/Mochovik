@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Pustina.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/Home.unity
+    guid: 07f7aaaecad854447b598e01d91c9851
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: feb0be342579d864f91e0803d5d22b75
+  - enabled: 1
+    path: Assets/Scenes/Snail.unity
+    guid: fa62e39adf61ab947942c18363b31503
+  - enabled: 1
+    path: Assets/Scenes/Mochovik.unity
+    guid: 267b5e8b3c23d354692c81b8a43a290c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 0308e6958a226644cbf0564ae8927263, type: 2}
   m_UseUCBPForAssetBundles: 0

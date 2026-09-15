@@ -1,0 +1,481 @@
+fileFormatVersion: 2
+guid: bf9b862e0e776a249be8881609094fe2
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -461557733520098174
+    second: ZadnaHraSelected_0
+  - first:
+      213: -6941119187912376240
+    second: ZadnaHraSelected_1
+  - first:
+      213: 6441840232300355883
+    second: ZadnaHraSelected_2
+  - first:
+      213: 344314783072074928
+    second: ZadnaHraSelected_3
+  - first:
+      213: 8095958528432270158
+    second: ZadnaHraSelected_4
+  - first:
+      213: -2373266090804071880
+    second: ZadnaHraSelected_5
+  - first:
+      213: 7167996076721804449
+    second: ZadnaHraSelected_6
+  - first:
+      213: -3598372115462701522
+    second: ZadnaHraSelected_7
+  - first:
+      213: 5609847465772822982
+    second: ZadnaHraSelected_8
+  - first:
+      213: -3778210875268365449
+    second: ZadnaHraSelected_9
+  - first:
+      213: -3592550920263870175
+    second: ZadnaHraSelected_10
+  - first:
+      213: 4344104504219651708
+    second: ZadnaHraSelected_11
+  - first:
+      213: 2078912890601698377
+    second: ZadnaHraSelected_12
+  - first:
+      213: 8206269372341209577
+    second: ZadnaHraSelected_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZadnaHraSelected_0
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 559
+        width: 37
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 28c3332dfa73899f0800000000000000
+      internalID: -461557733520098174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 482
+        width: 50
+        height: 67
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 050c5dccfd03caf90800000000000000
+      internalID: -6941119187912376240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 525
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b21251a9f83066950800000000000000
+      internalID: 6441840232300355883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_3
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 491
+        width: 30
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bc3def887047c400800000000000000
+      internalID: 344314783072074928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_4
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 529
+        width: 10
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4bef7b236f9a5070800000000000000
+      internalID: 8095958528432270158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_5
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 483
+        width: 31
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 832b4248017701fd0800000000000000
+      internalID: -2373266090804071880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_6
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 488
+        width: 32
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a495604476d97360800000000000000
+      internalID: 7167996076721804449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_7
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 503
+        width: 40
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2ebc2040a3001ec0800000000000000
+      internalID: -3598372115462701522
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_8
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 493
+        width: 40
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c1b3814c8e2add40800000000000000
+      internalID: 5609847465772822982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_9
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 493
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7738c1d0a39119bc0800000000000000
+      internalID: -3778210875268365449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_10
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 487
+        width: 45
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1295b20e8f1b42ec0800000000000000
+      internalID: -3592550920263870175
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_11
+      rect:
+        serializedVersion: 2
+        x: 610
+        y: 490
+        width: 41
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7ecf21d70c594c30800000000000000
+      internalID: 4344104504219651708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_12
+      rect:
+        serializedVersion: 2
+        x: 685
+        y: 502
+        width: 44
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9447b4b6248c9dc10800000000000000
+      internalID: 2078912890601698377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ZadnaHraSelected_13
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 496
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9c095f38682e170800000000000000
+      internalID: 8206269372341209577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ZadnaHraSelected_0: -461557733520098174
+      ZadnaHraSelected_1: -6941119187912376240
+      ZadnaHraSelected_10: -3592550920263870175
+      ZadnaHraSelected_11: 4344104504219651708
+      ZadnaHraSelected_12: 2078912890601698377
+      ZadnaHraSelected_13: 8206269372341209577
+      ZadnaHraSelected_2: 6441840232300355883
+      ZadnaHraSelected_3: 344314783072074928
+      ZadnaHraSelected_4: 8095958528432270158
+      ZadnaHraSelected_5: -2373266090804071880
+      ZadnaHraSelected_6: 7167996076721804449
+      ZadnaHraSelected_7: -3598372115462701522
+      ZadnaHraSelected_8: 5609847465772822982
+      ZadnaHraSelected_9: -3778210875268365449
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

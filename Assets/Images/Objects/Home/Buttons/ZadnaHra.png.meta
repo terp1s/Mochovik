@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 0e8327d3a144f4948800ffa4535c900e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3361408237122560968
+    second: ZadnaHra_0
+  - first:
+      213: 3912990403758827757
+    second: ZadnaHra_1
+  - first:
+      213: -682622604748559935
+    second: ZadnaHra_2
+  - first:
+      213: 2984860392282135253
+    second: ZadnaHra_3
+  - first:
+      213: -5226489827953472490
+    second: ZadnaHra_4
+  - first:
+      213: -5509698412666156840
+    second: ZadnaHra_5
+  - first:
+      213: -7872994233922918866
+    second: ZadnaHra_6
+  - first:
+      213: -6429626315646284979
+    second: ZadnaHra_7
+  - first:
+      213: -7073144030314049377
+    second: ZadnaHra_8
+  - first:
+      213: 3422571174714295368
+    second: ZadnaHra_9
+  - first:
+      213: -6932988434267816886
+    second: ZadnaHra_10
+  - first:
+      213: -852466513087710574
+    second: ZadnaHra_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ZadnaHra_1
+      rect:
+        serializedVersion: 2
+        x: 280
+        y: 482
+        width: 371
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de8ae815a0cbd4630800000000000000
+      internalID: 3912990403758827757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ZadnaHra_0: 3361408237122560968
+      ZadnaHra_1: 3912990403758827757
+      ZadnaHra_10: -6932988434267816886
+      ZadnaHra_11: -852466513087710574
+      ZadnaHra_2: -682622604748559935
+      ZadnaHra_3: 2984860392282135253
+      ZadnaHra_4: -5226489827953472490
+      ZadnaHra_5: -5509698412666156840
+      ZadnaHra_6: -7872994233922918866
+      ZadnaHra_7: -6429626315646284979
+      ZadnaHra_8: -7073144030314049377
+      ZadnaHra_9: 3422571174714295368
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

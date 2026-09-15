@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    private MoveToPoint move;
+    public static Player Instance { get; private set; }
+    [SerializeField] private MoveToPoint move;
 
     private void Awake()
     {
