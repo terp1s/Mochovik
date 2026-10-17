@@ -1,104 +1,47 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering;
 
-public class MandarinkyCap : MonoBehaviour, IDropHandler
+public class MandarinkyCap : MonoBehaviour, IPointerClickHandler
 {
-    public enum MandarinkyCapState
+    enum MandarinkyCapState
     {
-        LowerDeck,
-        Moving,
-        UpperDeck,
+        Sealed,
+        Cut,
     }
 
-    [Header("Settings")]
-    public float travelSpeed = 2.0f;
-    public Vector2 lowerPosition;
-    public Vector2 upperPosition;
+    MandarinkyCapState currentState = MandarinkyCapState.Sealed;
 
-    [Header("State")]
-    public MandarinkyCapState currentState = MandarinkyCapState.LowerDeck;
+    [SerializeField] private Sprite openCap;
+    [SerializeField] SpriteRenderer CanBack;
+    [SerializeField] Sprite OpenCan;
+    public bool IsSealed => currentState == MandarinkyCapState.Sealed;
 
-    private GameObject cargo;
-    public System.Action<GameObject> OnCargoDelivered;
+    private MandarinkyCapElevator elevator;
+    private SpriteRenderer spriteRenderer;
 
-    private Coroutine moveCoroutine;
 
-    private void OnEnable()
+    private void Awake()
     {
-        GameEventsManager.instance.puzzleEvents.OnCowsBurned += MoveDown;
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        elevator = GetComponent<MandarinkyCapElevator>();
+        
     }
 
-    private void OnDisable()
+    private void Start()
     {
-        GameEventsManager.instance.puzzleEvents.OnCowsBurned -= MoveDown;
+        currentState = MandarinkyCapState.Sealed;
+        elevator.enabled = false;
+        spriteRenderer.sprite = null;
     }
 
-    public void MoveUp()
+    public void OnPointerClick(PointerEventData eventData)
     {
-        if (currentState != MandarinkyCapState.UpperDeck)
-        {
-            StartMove(upperPosition, MandarinkyCapState.UpperDeck);
-        }
+        if(currentState == MandarinkyCapState.Cut) { return; }
+
+        currentState = MandarinkyCapState.Cut;
+        spriteRenderer.sprite = openCap;
+        elevator.enabled = true;
+        CanBack.sprite = OpenCan;
     }
 
-    public void MoveDown()
-    {
-        if (currentState != MandarinkyCapState.LowerDeck)
-        {
-            StartMove(lowerPosition, MandarinkyCapState.LowerDeck);
-        }
-    }
-
-    private void StartMove(Vector2 target, MandarinkyCapState endState)
-    {
-        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-
-        moveCoroutine = StartCoroutine(MoveRoutine(target, endState));
-    }
-
-    private IEnumerator MoveRoutine(Vector2 target, MandarinkyCapState endState)
-    {
-        currentState = MandarinkyCapState.Moving;
-
-        while (Vector2.Distance(transform.position, target) > 0.01f)
-        {
-            transform.position = Vector2.MoveTowards(
-                transform.position,
-                target,
-                travelSpeed * Time.deltaTime
-            );
-            yield return null;
-        }
-
-        transform.position = target;
-        currentState = endState;
-
-        if (currentState == MandarinkyCapState.UpperDeck && cargo != null)
-        {
-            OnCargoDelivered?.Invoke(cargo);
-            cargo = null;
-        }
-
-        moveCoroutine = null;
-    }
-
-
-    public bool BoardCargo(GameObject item)
-    {
-        if(currentState == MandarinkyCapState.LowerDeck && cargo is null)
-        {
-            cargo = item;
-            item.transform.SetParent(this.transform);
-            return true;
-        }
-        return false;
-    }
-
-    public void OnDrop(PointerEventData eventData)
-    {
-        BoardCargo(eventData.pointerDrag);
-
-    }
 }

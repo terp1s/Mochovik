@@ -1,53 +1,47 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Mandarinky : MonoBehaviour, IPointerClickHandler
 {
-    enum MandarinkyState
-    {
-        Sealed,
-        Cut,
-    }
-
-    MandarinkyState currentState = MandarinkyState.Sealed;
+    [SerializeField] MandarinkyHole hole;
+    
+    MandarinkyCapElevator capElevator;
     MandarinkyCap cap;
+    
 
     private void Awake()
     {
+        capElevator = GetComponentInChildren<MandarinkyCapElevator>();
         cap = GetComponentInChildren<MandarinkyCap>();
     }
 
     private void OnEnable()
     {
-        GameEventsManager.instance.puzzleEvents.OnJarPlaced += PlacedJar;
+        GameEventsManager.instance.puzzleEvents.OnCowsFedInMandarinky += CowsFed;
     }
 
     private void OnDisable()
     {
         if (GameEventsManager.instance != null)
         {
-            GameEventsManager.instance.puzzleEvents.OnJarPlaced -= PlacedJar;
+            GameEventsManager.instance.puzzleEvents.OnCowsFedInMandarinky -= CowsFed;
         }
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (currentState == MandarinkyState.Sealed)
-        {
-            currentState = MandarinkyState.Cut;
-        }
+        hole.gameObject.SetActive(true);
+
     }
 
-    public void PlacedJar(string drop, MasonJar jar)
+    public void CowsFed()
     {
-        if(drop is not "mandarinky" ||jar is null) { return; }
-
-        if (jar.IsFull && currentState == MandarinkyState.Sealed)
+        if (cap.IsSealed)
         {
             Smoke();
         }
-
-        else if (jar.IsFull && currentState == MandarinkyState.Cut)
+        else
         {
             Elevator();
         }
@@ -60,7 +54,7 @@ public class Mandarinky : MonoBehaviour, IPointerClickHandler
 
     void Elevator()
     {
-        cap.MoveUp();
+        capElevator.MoveUp();
     }
 
 }

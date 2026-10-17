@@ -1,9 +1,17 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ChemoprenItem : InventoryItem, IPointerClickHandler
 {
+    [SerializeField] GameObject Instructions;
+    
+
+    private void Start()
+    {
+    }
+
     public void OnPointerClick(PointerEventData eventData)
     {
         ShowInstructions();
@@ -18,6 +26,6 @@ public class ChemoprenItem : InventoryItem, IPointerClickHandler
 
     public void ShowInstructions()
     {
-        throw new NotImplementedException();
+        descriptionPanel.Show(Instructions);
     }
 }

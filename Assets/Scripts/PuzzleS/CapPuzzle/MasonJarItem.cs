@@ -1,21 +1,29 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class MasonJarItem : InventoryItem
 {
-    public bool isFilled = false;
-    
-    public override void OnEndDrag(PointerEventData eventData)
+    public int numberOfCows = 0;
+
+    [SerializeField] private GameObject uiCowPrefab; 
+
+    private void Start()
     {
-        base.OnEndDrag(eventData);
+        UpdateVisuals();
+    }
 
-        if (!wasPlaced)
+    public void UpdateVisuals()
+    {
+
+        RectTransform jarRect = GetComponent<RectTransform>();
+
+        for (int i = 0; i < numberOfCows; i++)
         {
-            Inventory.Instance.AddItem(this);
+            GameObject cow = Instantiate(uiCowPrefab, transform);
+            cow.GetComponent<UiFlyCow>().Setup(jarRect);
         }
-
-        Destroy(gameObject);
 
     }
 
@@ -25,7 +33,8 @@ public class MasonJarItem : InventoryItem
         GameObject spawnedObject = Instantiate(WorldPrefab, parent);
         spawnedObject.transform.localPosition = position;
         MasonJar masonJar = spawnedObject.GetComponent<MasonJar>();
-        masonJar.currentState = isFilled ? MasonJar.MasonJarState.Full : MasonJar.MasonJarState.Empty;
+        masonJar.cowsInJar = numberOfCows;
+        
 
         return spawnedObject;
     }

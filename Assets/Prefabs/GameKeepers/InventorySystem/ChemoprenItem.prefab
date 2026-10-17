@@ -125,14 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ced55ee207eb844bb140e873a98765e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  descriptionPanel: {fileID: 0}
   Sprite: {fileID: -4319967955681853576, guid: 0e4c60154f80cb046ae38eddf1d0abcc, type: 3}
-  Slot: {fileID: 0}
   UiPrefab: {fileID: 2718186221251335594}
-  UiRectTransform: {fileID: 7738635923199925666}
   WorldPrefab: {fileID: 0}
   wasPlaced: 0
---- !u!224 &7738635923199925666 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4130335795754365028, guid: 96075f7d8f16f374d8d608f520832fcb, type: 3}
-  m_PrefabInstance: {fileID: 5923586849177890246}
-  m_PrefabAsset: {fileID: 0}
+  Instructions: {fileID: 4995816798821715208, guid: 69e0926ff13cf7b40aefcddc6a51063e, type: 3}

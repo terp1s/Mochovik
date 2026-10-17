@@ -10,10 +10,18 @@ public class Pond : MonoBehaviour, IItemReceiver
 
     [Header("Settings")]
     public float glueDryingTime = 10f;
-
-
-
     public string requiredItemName = "Chemopren";
+
+    private void OnEnable()
+    {
+        GameEventsManager.instance.puzzleEvents.OnValveHandleTurned += DrainPond;
+    }
+
+    private void OnDisable()
+    {
+        GameEventsManager.instance.puzzleEvents.OnValveHandleTurned -= DrainPond;
+
+    }
 
     public bool CanReceiveItem(InventoryItem item)
     {
@@ -40,9 +48,14 @@ public class Pond : MonoBehaviour, IItemReceiver
     }
     private void DrainPond()
     {
-        Debug.Log("Pond drained!");
-        currentState = PondState.Empty;
-        pondLiquid.Drain();
+        if(currentState == PondState.FilledWithWater)
+        {
+            Debug.Log("Pond drained!");
+            currentState = PondState.Empty;
+            GameEventsManager.instance.puzzleEvents.WaterDrained();
+            pondLiquid.Drain();
+        }
+        
     }
 
     private void FillWithGlue()
@@ -58,6 +71,7 @@ public class Pond : MonoBehaviour, IItemReceiver
         yield return new WaitForSeconds(glueDryingTime);
         currentState = PondState.FilledWithStickyGlue;
         pondLiquid.ChangeToStickyGlue();
+        GameEventsManager.instance.puzzleEvents.GlueDried();
         Debug.Log("The glue is now sticky");
     }
 

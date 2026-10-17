@@ -4,16 +4,17 @@ using UnityEngine;
 
 public class PuzzleEvents
 {
-    public event Action<string, GameObject> OnCargoDelivered;
-    public void CargoDelivered(string id, GameObject cargo)
+    public event Action<GameObject> OnCargoDelivered;
+    public void CargoDelivered(GameObject cargo)
     {
-        OnCargoDelivered?.Invoke(id, cargo);
+        OnCargoDelivered?.Invoke(cargo);
     }
 
-    public event Action<string, MasonJar> OnJarPlaced;
-    public void JarPlaced(string id, MasonJar jar)
+    public event Action OnCowsFedInMandarinky;
+
+    public void CowsFedInMandarinky()
     {
-        OnJarPlaced?.Invoke(id, jar);
+        OnCowsFedInMandarinky?.Invoke();
     }
 
     public event Action OnCowsBurned;
@@ -21,5 +22,32 @@ public class PuzzleEvents
     public void CowsBurned()
     {
         OnCowsBurned?.Invoke();
+    }
+
+    public event Action OnValveHandleTurned;
+    public void ValveHandleTurned()
+    {
+        OnValveHandleTurned?.Invoke();
+    }
+
+    public event Action OnGlueDried;
+
+    public void GlueDried()
+    {
+        OnGlueDried?.Invoke();
+    }
+
+    public event Action OnGlueApplied;
+
+    public void GlueApplied()
+    {
+        OnGlueApplied?.Invoke();
+    }
+
+    public event Action OnWaterDrained;
+
+    public void WaterDrained()
+    {
+        OnWaterDrained?.Invoke();
     }
 }

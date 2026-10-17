@@ -124,12 +124,12 @@ TextureImporter:
       name: Snail_eating_0
       rect:
         serializedVersion: 2
-        x: 893
-        y: 606
-        width: 975
-        height: 399
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 934
+        y: 640
+        width: 934
+        height: 363
+      alignment: 5
+      pivot: {x: 1, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -142,165 +142,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: Snail_eating_1
-      rect:
-        serializedVersion: 2
-        x: 1867
-        y: 726
-        width: 6
-        height: 10
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cb051ae6efd7166a0800000000000000
-      internalID: -6457741858941349700
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snail_eating_2
-      rect:
-        serializedVersion: 2
-        x: 1865
-        y: 712
-        width: 34
-        height: 8
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ed953ab1b95106240800000000000000
-      internalID: 4782846560195271134
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snail_eating_3
-      rect:
-        serializedVersion: 2
-        x: 1873
-        y: 642
-        width: 10
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: b494074a1dee0a610800000000000000
-      internalID: 1630565649282517323
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snail_eating_4
-      rect:
-        serializedVersion: 2
-        x: 1832
-        y: 631
-        width: 7
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: aac9ed2b9f515baf0800000000000000
-      internalID: -381374431250965334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snail_eating_5
-      rect:
-        serializedVersion: 2
-        x: 1723
-        y: 531
-        width: 17
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7f43076f800477d00800000000000000
-      internalID: 970314651960095991
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snail_eating_6
-      rect:
-        serializedVersion: 2
-        x: 1739
-        y: 533
-        width: 13
-        height: 7
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 2edeb1944cfb1b850800000000000000
-      internalID: 6391100195976506850
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Snail_eating_7
-      rect:
-        serializedVersion: 2
-        x: 1772
-        y: 469
-        width: 6
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: da9a000c2e2eec800800000000000000
-      internalID: 634694061017573805
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 614e3811e84540247b89d8023a91bf5b
     internalID: 0
     vertices: []
     indices: 

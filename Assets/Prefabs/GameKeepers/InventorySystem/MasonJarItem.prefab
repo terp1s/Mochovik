@@ -88,9 +88,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6695708894273857869, guid: 96075f7d8f16f374d8d608f520832fcb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 5934426167403820858, guid: 8f24bed1c8e06f740ba80714b903e2a9, type: 3}
     - target: {fileID: 8614296667134392428, guid: 96075f7d8f16f374d8d608f520832fcb, type: 3}
       propertyPath: m_Name
-      value: MasonJar
+      value: MasonJarItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -117,15 +121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e59137a36ebf2e4e8073f155efef765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MasonJarItem
-  Sprite: {fileID: 283282597, guid: 93735627ea238af4cb434b0b272a58d8, type: 3}
-  Slot: {fileID: 0}
+  Sprite: {fileID: 5934426167403820858, guid: 8f24bed1c8e06f740ba80714b903e2a9, type: 3}
   UiPrefab: {fileID: 2575571824787508457}
-  UiRectTransform: {fileID: 7882288108603065569}
   WorldPrefab: {fileID: 8258579454050446020, guid: db58918acaef97b40b4d769f1b7cd861, type: 3}
   wasPlaced: 0
-  isFilled: 0
---- !u!224 &7882288108603065569 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4130335795754365028, guid: 96075f7d8f16f374d8d608f520832fcb, type: 3}
-  m_PrefabInstance: {fileID: 6067023523859575941}
-  m_PrefabAsset: {fileID: 0}
+  numberOfCows: 0
+  isFilled: 1
+  uiCowPrefab: {fileID: 8516919659680313233, guid: cd21941bf100c954b97b1e7d9d63a77a, type: 3}

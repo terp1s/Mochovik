@@ -7,14 +7,16 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    [SerializeField] protected ItemDetailPanel descriptionPanel;
     public Sprite Sprite;
-    public InventorySlot Slot {  get; set; }
+    public InventorySlot Slot { get; set; }
     public GameObject UiPrefab;
-    public RectTransform UiRectTransform {  get; private set; }
+    public RectTransform UiRectTransform { get; private set; }
     public GameObject WorldPrefab;
 
     protected CanvasGroup canvasGroup;
     protected Transform originalParent;
+
 
     [HideInInspector] public bool wasPlaced = false;
 
@@ -26,6 +28,7 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         GetComponent<Image>().preserveAspect = true;
         UiRectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        descriptionPanel = FindAnyObjectByType<ItemDetailPanel>(FindObjectsInactive.Include);
     }
 
     public virtual void OnBeginDrag(PointerEventData eventData)
@@ -35,11 +38,13 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         canvasGroup.blocksRaycasts = false;
         transform.SetParent(GetComponentInParent<Canvas>().transform, true);
 
+        /*
         if (Slot is not null)
         {
             Inventory.Instance.RemoveItem(Slot);
             Slot = null;
         }
+        */
     }
 
     public virtual void OnDrag(PointerEventData eventData)
@@ -51,25 +56,55 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         canvasGroup.blocksRaycasts = true;
 
-        GameObject hitObject = eventData.pointerEnter;
+        Vector2 mousePosition = Camera.main.ScreenToWorldPoint(eventData.position);
 
-        if (hitObject != null)
+        Debug.Log($"Mouse screen: {eventData.position}");
+        Debug.Log($"Mouse world: {mousePosition}");
+
+        RaycastHit2D[] hits = Physics2D.RaycastAll(
+            mousePosition,
+            Vector2.zero
+        );
+
+        foreach (RaycastHit2D hit in hits)
         {
-            IItemReceiver receiver = hitObject.GetComponentInParent<IItemReceiver>();
+            IItemReceiver receiver =
+                hit.collider.GetComponentInParent<IItemReceiver>();
 
-            if (receiver != null && receiver.CanReceiveItem(this))
+            if (receiver == null)
+                continue;
+
+            if (!receiver.CanReceiveItem(this))
+                continue;
+
+            receiver.OnReceiveItem(this);
+            wasPlaced = true;
+            break;
+        }
+
+        if (wasPlaced)
+        {
+            // Successfully placed in the world: delete the slot and destroy this item
+            if (Slot != null)
             {
-                receiver.OnReceiveItem(this);
-                wasPlaced = true;
+                Inventory.Instance.RemoveItem(Slot);
             }
+            Destroy(gameObject);
         }
-
-        if (!wasPlaced)
+        else
         {
-            Inventory.Instance.AddItem(this);
+            // Drop failed or cancelled: Snap right back into the existing slot!
+            SnapBackToSlot();
         }
+    }
 
-        Destroy(gameObject);
+    private void SnapBackToSlot()
+    {
+        if (Slot != null)
+        {
+            transform.SetParent(Slot.transform, false);
+            UiRectTransform.anchoredPosition = Vector2.zero;
+        }
     }
 
     public virtual GameObject SpawnInWorld(Vector3 position, Transform parent)

@@ -15,8 +15,13 @@ public class CapPuzzle : MonoBehaviour, IPuzzle
     private void Start()
     {
         PuzzleManager.Instance.RegisterPuzzle(this);
+        Shuffle();
     }
 
+    private void Shuffle()
+    {
+
+    }
     public void CheckPuzzleCompletion()
     {
         foreach (var anchor in anchors)

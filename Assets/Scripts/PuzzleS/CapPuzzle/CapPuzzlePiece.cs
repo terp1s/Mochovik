@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static Unity.Burst.Intrinsics.X86.Avx;
 
 public class CapPuzzlePiece : WorldDraggable
 {
     [SerializeField] public CapHolder ParentHolder;
-    public CapHolder ChildHolder;
-    private Transform originalParent;
+    [SerializeField] public CapHolder ChildHolder;
+    private CapHolder originalParentHolder;
    
     public Vector2Int capIndex;
     public bool IsPlaced => ParentHolder != null;
@@ -13,17 +14,25 @@ public class CapPuzzlePiece : WorldDraggable
     protected new void Awake()
     {
         base.Awake();
-        col = GetComponent<Collider2D>();
 
-        ChildHolder = GetComponentInChildren<CapHolder>();
         ParentHolder = GetComponentInParent<CapHolder>();
+        ChildHolder = GetComponentInChildren<CapHolder>();
     }
 
     public void AttachTo(CapHolder holder)
     {
         ParentHolder = holder;
 
-        transform.SetParent(ParentHolder.transform);
+        if (ParentHolder != null)
+        {
+            ParentHolder.cap = this;
+
+            transform.SetParent(ParentHolder.transform, true);
+            transform.localPosition = Vector3.zero;
+        }
+
+
+        transform.SetParent(ParentHolder.transform, true);
         transform.localPosition = Vector3.zero;
     }
 
@@ -34,11 +43,13 @@ public class CapPuzzlePiece : WorldDraggable
 
         ParentHolder = null;
         transform.SetParent(null);
+        transform.localPosition -= new Vector3(0, 0, 0.2f); // Move the piece slightly forward to avoid z-fighting
     }
 
     protected override void OnDragStart()
     {
         originalParent = transform.parent;
+        originalParentHolder = ParentHolder;
 
         Detach();
 
@@ -53,14 +64,24 @@ public class CapPuzzlePiece : WorldDraggable
     {
         if (!IsPlaced)
         {
-            transform.SetParent(originalParent);
-            transform.localPosition = Vector3.zero;
+            if (originalParentHolder != null)
+            {
+                AttachTo(originalParentHolder);
+            }
+            else if (originalParent != null)
+            {
+                transform.SetParent(originalParent, true);
+                transform.localPosition = Vector3.zero;
+            }
+
+         
         }
     }
 
     protected override bool CanStartDrag(PointerEventData eventData)
     {
-        GameObject hitObject = eventData.pointerCurrentRaycast.gameObject;
-        return hitObject == this.gameObject;
+        return true;
     }
+
 }
+

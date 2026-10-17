@@ -1,0 +1,175 @@
+fileFormatVersion: 2
+guid: 575c037f90e6b6a44bd533a870787d31
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8770915849620420178
+    second: light_bulb_emote2_0
+  - first:
+      213: -4376687048239887853
+    second: light_bulb_emote2_1
+  - first:
+      213: 303523791900287777
+    second: light_bulb_emote2_2
+  - first:
+      213: 3706398113219764881
+    second: light_bulb_emote2_3
+  - first:
+      213: -3118462521222429457
+    second: light_bulb_emote2_4
+  - first:
+      213: 5132723818048785179
+    second: light_bulb_emote2_5
+  - first:
+      213: 3817467453778135268
+    second: light_bulb_emote2_6
+  - first:
+      213: -711391452217120325
+    second: light_bulb_emote2_7
+  - first:
+      213: -2209678636835151814
+    second: light_bulb_emote2_8
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: light_bulb_emote2_0
+      rect:
+        serializedVersion: 2
+        x: 684
+        y: 774
+        width: 265
+        height: 197
+      alignment: 9
+      pivot: {x: 0.53352374, y: 0.615244}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 256f773be7d88b970800000000000000
+      internalID: 8770915849620420178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 615c7aad48b9bf841b484e7075bc8a0b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      light_bulb_emote2_0: 8770915849620420178
+      light_bulb_emote2_1: -4376687048239887853
+      light_bulb_emote2_2: 303523791900287777
+      light_bulb_emote2_3: 3706398113219764881
+      light_bulb_emote2_4: -3118462521222429457
+      light_bulb_emote2_5: 5132723818048785179
+      light_bulb_emote2_6: 3817467453778135268
+      light_bulb_emote2_7: -711391452217120325
+      light_bulb_emote2_8: -2209678636835151814
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class MoveToPoint : MonoBehaviour
 {
-    [SerializeField] Vector2 target;
+    [SerializeField] Vector2? target = null;
     [SerializeField] int speed;
 
     void Update()
     {
-        if(target != null)
+        if(target is not null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target, Time.deltaTime * speed);
+            transform.position = Vector2.MoveTowards(transform.position, (Vector2)target, Time.deltaTime * speed);
         }
     }
 

@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1111267500787740222}
   - component: {fileID: 7646436471202307320}
-  - component: {fileID: 5766458927607924151}
   - component: {fileID: 4380730472418267124}
   - component: {fileID: 5384985082673168326}
   m_Layer: 0
@@ -30,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.09}
-  m_LocalScale: {x: 0.19, y: 0.19, z: 0.19}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1230637827340015049}
@@ -85,29 +84,16 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 283282597, guid: 93735627ea238af4cb434b0b272a58d8, type: 3}
+  m_Sprite: {fileID: 5934426167403820858, guid: 8f24bed1c8e06f740ba80714b903e2a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.97, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &5766458927607924151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8258579454050446020}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1af59cfc815b8c54b9d6df48eb7e928b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  inventoryItem: {fileID: -680167018169097610, guid: 41a5fefa625e0b348b8bbf62984e62f7, type: 3}
 --- !u!61 &4380730472418267124
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -142,17 +128,17 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.0081448555, y: -0.005653262}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.94, y: 8.08}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.97, y: 3}
+    newSize: {x: 1.97, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4.94, y: 8.08}
+  m_Size: {x: 2.0658035, y: 3.0654185}
   m_EdgeRadius: 0
 --- !u!114 &5384985082673168326
 MonoBehaviour:
@@ -167,7 +153,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MasonJar
   inventoryJar: {fileID: -680167018169097610, guid: 41a5fefa625e0b348b8bbf62984e62f7, type: 3}
+  CowPrefab: {fileID: 8970962462297311639, guid: d1a642bedd7841040bb7e966e44a74d1, type: 3}
   burnTime: 5
+  cowsInJar: 0
+  currentState: 0
 --- !u!1001 &2021510270166971547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,19 +207,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2049106942590424645, guid: 78938e654bb44a14cb528bb33d465406, type: 3}
       propertyPath: m_Size.x
-      value: 3.9830766
+      value: 1.2702913
       objectReference: {fileID: 0}
     - target: {fileID: 2049106942590424645, guid: 78938e654bb44a14cb528bb33d465406, type: 3}
       propertyPath: m_Size.y
-      value: 5.57314
+      value: 1.8858573
       objectReference: {fileID: 0}
     - target: {fileID: 2049106942590424645, guid: 78938e654bb44a14cb528bb33d465406, type: 3}
       propertyPath: m_Offset.x
-      value: -0.0515818
+      value: 0.027431697
       objectReference: {fileID: 0}
     - target: {fileID: 2049106942590424645, guid: 78938e654bb44a14cb528bb33d465406, type: 3}
       propertyPath: m_Offset.y
-      value: -0.72277975
+      value: -0.20919359
       objectReference: {fileID: 0}
     - target: {fileID: 8735284696946529693, guid: 78938e654bb44a14cb528bb33d465406, type: 3}
       propertyPath: m_Name

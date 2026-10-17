@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2423226514775009292}
   - component: {fileID: 9123595884377865412}
   - component: {fileID: 4331081436642648028}
+  - component: {fileID: 8761476033505153127}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Untagged
@@ -84,7 +85,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -7009392927338342624, guid: 789f1d32695518749a3aa4238bfa536b, type: 3}
+  m_Sprite: {fileID: 3566203924127129947, guid: 21e9e58603866654d83c43756ab49f82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -106,7 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20499c88e94535844a86f2818eb7750b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Holder: {fileID: 0}
+  ParentHolder: {fileID: 0}
+  ChildHolder: {fileID: 0}
+  capIndex: {x: 0, y: 0}
 --- !u!58 &4331081436642648028
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -141,8 +144,23 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -5}
-  m_Radius: 5
+  m_Offset: {x: 0, y: -0.75}
+  m_Radius: 0.82953155
+--- !u!114 &8761476033505153127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1892758803351219249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8278379d231504d901d3aec583e140, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CapRotate
+  ID: 0
+  manager: {fileID: 0}
+  capBackSprite: {fileID: 954984909321248552, guid: cc493d059f727a44d912f4889b2c5948, type: 3}
 --- !u!1001 &187250304808983833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -151,6 +169,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8249178194308800028}
     m_Modifications:
+    - target: {fileID: 1078932658574523957, guid: ac98fe8b1de77574a82272273178e7f8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1490466859901790052, guid: ac98fe8b1de77574a82272273178e7f8, type: 3}
       propertyPath: m_Name
       value: Rope

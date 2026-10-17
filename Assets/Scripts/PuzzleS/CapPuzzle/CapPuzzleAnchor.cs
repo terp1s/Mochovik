@@ -7,10 +7,12 @@ public class CapPuzzleAnchor : MonoBehaviour
     public int RopeIndex;
     [SerializeField] private CapHolder Holder;
 
+    [SerializeField] private float sizeMultiplier = 0.85f;
+    [SerializeField] private float brightnessMultiplier = 0.85f;
+
     private void Awake()
     {
         Holder = GetComponent<CapHolder>();
-        //RopeIndex = (int)gameObject.name[4];
 
     }
     public bool IsCompleted()
