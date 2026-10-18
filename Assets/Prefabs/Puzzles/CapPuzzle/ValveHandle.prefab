@@ -151,12 +151,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5307809666538831683}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 35e5f31d97f6485489d71697457f7b8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  spriteRenderer: {fileID: 0}
+  dragSortingOrder: 1000
   circleCollider: {fileID: 0}
 --- !u!95 &-4636387948551129180
 Animator:

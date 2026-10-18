@@ -46,7 +46,7 @@ public class Fish : MonoBehaviour, IInteractable
                 dataToCollect = grower.GetCurrentItemData();
             }
 
-            Inventory.Instance.AddItem(dataToCollect);
+            Inventory.Instance.AddItem(dataToCollect, this.gameObject);
             Destroy(gameObject);
 
             spawner.hasFish = false;

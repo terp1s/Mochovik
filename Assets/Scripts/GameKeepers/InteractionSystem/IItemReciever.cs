@@ -17,4 +17,6 @@ public interface INiche : IObjectReceiver
 {
     bool CanRemoveObject();
     void OnObjectRemoved();
+    void OnObjectHeld();
+    void OnObjectReturned();
 }

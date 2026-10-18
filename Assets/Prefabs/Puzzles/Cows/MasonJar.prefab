@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7646436471202307320}
   - component: {fileID: 4380730472418267124}
   - component: {fileID: 5384985082673168326}
+  - component: {fileID: 6076250845306858828}
   m_Layer: 0
   m_Name: MasonJar
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.09}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1230637827340015049}
@@ -131,7 +132,7 @@ BoxCollider2D:
   m_Offset: {x: 0.0081448555, y: -0.005653262}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0}
     oldSize: {x: 1.97, y: 3}
     newSize: {x: 1.97, y: 3}
     adaptiveTilingThreshold: 0.5
@@ -152,11 +153,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b700d61918036fa409795182848d6410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MasonJar
+  dragSortingOrder: 1000
   inventoryJar: {fileID: -680167018169097610, guid: 41a5fefa625e0b348b8bbf62984e62f7, type: 3}
   CowPrefab: {fileID: 8970962462297311639, guid: d1a642bedd7841040bb7e966e44a74d1, type: 3}
   burnTime: 5
   cowsInJar: 0
-  currentState: 0
+--- !u!114 &6076250845306858828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8258579454050446020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1af59cfc815b8c54b9d6df48eb7e928b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CollectOnClick
+  inventoryItem: {fileID: -680167018169097610, guid: 41a5fefa625e0b348b8bbf62984e62f7, type: 3}
 --- !u!1001 &2021510270166971547
 PrefabInstance:
   m_ObjectHideFlags: 0

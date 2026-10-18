@@ -38,4 +38,9 @@ public class MasonJarItem : InventoryItem
 
         return spawnedObject;
     }
+
+    public override void Setup(GameObject obj)
+    {
+        numberOfCows = obj.GetComponent<MasonJar>().cowsInJar;
+    }
 }

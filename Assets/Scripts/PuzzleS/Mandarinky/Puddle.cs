@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Puddle : MonoBehaviour, IObjectReceiver
+public class Puddle : MonoBehaviour, IObjectReceiver, IItemReceiver
 {
     public Transform spawnPoint;
     public bool IsSpilled { get; private set; } = false;
@@ -49,5 +49,20 @@ public class Puddle : MonoBehaviour, IObjectReceiver
     public void HasSpilled()
     {
         IsSpilled = true;
+    }
+
+    public bool CanReceiveItem(InventoryItem item)
+    {
+        return item.gameObject.TryGetComponent<PopcornItem>(out PopcornItem pop) && IsSpilled;
+    }
+
+    public void OnReceiveItem(InventoryItem item)
+    {
+        Popcorn pop = item.SpawnInWorld(spawnPoint.localPosition, transform).GetComponent<Popcorn>();
+
+        if (pop != null)
+        {
+            pop.Grow();
+        }
     }
 }

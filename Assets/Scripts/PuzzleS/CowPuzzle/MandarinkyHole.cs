@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INiche
 {
     [SerializeField] private MandarinkyCapElevator elevator;
+    private GameObject obj;
     public bool IsOccupied { get; private set; } = false;
 
    
@@ -22,24 +23,52 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
     {
         return elevator.CanRemoveObject();
     }
+
+    public void OnObjectHeld()
+    {
+    }
+
     public void OnObjectRemoved()
     {
         IsOccupied = false;
     }
 
-    public void OnReceiveItem(InventoryItem item)
-    {
-        GameObject spawnedObject = item.SpawnInWorld(new Vector3(0, 0, -0.01f), this.transform);
-        IsOccupied = true;
-        FitObject(spawnedObject);
-    }
-
-    public void OnReceiveObject(WorldDraggable obj)
+    public void OnObjectReturned()
     {
         obj.transform.SetParent(transform);
         obj.transform.localPosition = new Vector3(0, 0, -0.01f);
-        FitObject(obj.gameObject);
+        FitObject(obj);
         IsOccupied = true;
+    }
+
+    public void OnReceiveItem(InventoryItem item)
+    {
+        obj = item.SpawnInWorld(new Vector3(0, 0, -0.01f), this.transform);
+        SetNicheForObject();
+        IsOccupied = true;
+        FitObject(obj);
+    }
+
+    public void OnReceiveObject(WorldDraggable drop)
+    {
+        obj =  drop.gameObject;
+        SetNicheForObject();
+        obj.transform.SetParent(transform);
+        obj.transform.localPosition = new Vector3(0, 0, -0.01f);
+        FitObject(obj);
+        IsOccupied = true;
+    }
+
+    private void SetNicheForObject()
+    {
+        if (obj.TryGetComponent(out WorldDraggable draggable))
+        {
+            draggable.SetNiche(this);
+        }
+        if (obj.TryGetComponent(out CollectOnClick collectible))
+        {
+            collectible.CurrentNiche = this;
+        }
     }
 
     private void FitObject(GameObject obj)

@@ -8,12 +8,13 @@ public class Mandarinky : MonoBehaviour, IPointerClickHandler
     
     MandarinkyCapElevator capElevator;
     MandarinkyCap cap;
-    
+    Fire fire;
 
     private void Awake()
     {
         capElevator = GetComponentInChildren<MandarinkyCapElevator>();
         cap = GetComponentInChildren<MandarinkyCap>();
+        fire = GetComponentInChildren<Fire>(true);
     }
 
     private void OnEnable()
@@ -43,6 +44,7 @@ public class Mandarinky : MonoBehaviour, IPointerClickHandler
         }
         else
         {
+            fire.StartFire();
             Elevator();
         }
     }
@@ -51,6 +53,8 @@ public class Mandarinky : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log("Smoke effect triggered!");
     }
+
+  
 
     void Elevator()
     {

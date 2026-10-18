@@ -117,4 +117,14 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
     {
         cargo = null;
     }
+
+    public void OnObjectHeld()
+    {
+    }
+
+    public void OnObjectReturned()
+    {
+        cargo.transform.localPosition = Vector3.zero;
+
+    }
 }

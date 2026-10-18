@@ -4,24 +4,24 @@ using UnityEngine.EventSystems;
 public class CollectOnClick : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] InventoryItem inventoryItem;
-    public INiche niche;
+    public INiche CurrentNiche;
 
     private void Awake()
     {
-        niche = GetComponentInParent<INiche>();
+        CurrentNiche = GetComponentInParent<INiche>();
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.dragging) return;
 
-        if(niche is not null)
+        if(CurrentNiche is not null)
         {
-            niche.OnObjectRemoved();
-            niche = null;
+            CurrentNiche.OnObjectRemoved();
+            CurrentNiche = null;
         }
 
-        Inventory.Instance.AddItem(inventoryItem);
+        Inventory.Instance.AddItem(inventoryItem, this.gameObject);
         Destroy(gameObject);
     }
 }

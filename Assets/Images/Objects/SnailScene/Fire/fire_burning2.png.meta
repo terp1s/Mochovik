@@ -1,0 +1,195 @@
+fileFormatVersion: 2
+guid: 502786f93056d41429095ca3892e07d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4432022694814624370
+    second: fire_burning2_0
+  - first:
+      213: -3777000347261957710
+    second: fire_burning2_1
+  - first:
+      213: -6364259148370336616
+    second: fire_burning2_2
+  - first:
+      213: -7352781652081710986
+    second: fire_burning2_3
+  - first:
+      213: 3131874350304518120
+    second: fire_burning2_4
+  - first:
+      213: 7907157740365927192
+    second: fire_burning2_5
+  - first:
+      213: -4384527224207176959
+    second: fire_burning2_6
+  - first:
+      213: -3290872369674242930
+    second: fire_burning2_7
+  - first:
+      213: -2155958382254388619
+    second: fire_burning2_8
+  - first:
+      213: 7166963553392116097
+    second: fire_burning2_9
+  - first:
+      213: -6222643830389786823
+    second: fire_burning2_10
+  - first:
+      213: 1974391790477562965
+    second: fire_burning2_11
+  - first:
+      213: -5212037944182481197
+    second: fire_burning2_12
+  - first:
+      213: -7683654866465230278
+    second: fire_burning2_13
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: fire_burning2_7
+      rect:
+        serializedVersion: 2
+        x: 910
+        y: 425
+        width: 269
+        height: 304
+      alignment: 9
+      pivot: {x: 0.5456053, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e843b6cf3097452d0800000000000000
+      internalID: -3290872369674242930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 6708ada78ea1e1948840e8e2e5175600
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      fire_burning2_0: -4432022694814624370
+      fire_burning2_1: -3777000347261957710
+      fire_burning2_10: -6222643830389786823
+      fire_burning2_11: 1974391790477562965
+      fire_burning2_12: -5212037944182481197
+      fire_burning2_13: -7683654866465230278
+      fire_burning2_2: -6364259148370336616
+      fire_burning2_3: -7352781652081710986
+      fire_burning2_4: 3131874350304518120
+      fire_burning2_5: 7907157740365927192
+      fire_burning2_6: -4384527224207176959
+      fire_burning2_7: -3290872369674242930
+      fire_burning2_8: -2155958382254388619
+      fire_burning2_9: 7166963553392116097
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

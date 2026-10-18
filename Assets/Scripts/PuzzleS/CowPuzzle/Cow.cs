@@ -5,7 +5,7 @@ using UnityEngine.UIElements;
 
 public enum CowState { Wandering, GoingToPond, Landing, Drinking, Fleeing, Stuck, Eating}
 
-public class Cow : WorldDraggable, IPointerClickHandler, IObjectReceiver
+public class Cow : WorldDraggable, IPointerClickHandler, IObjectReceiver, IItemReceiver
 {
     public FlyMovement movement;
     private Animator animator;
@@ -118,5 +118,16 @@ public class Cow : WorldDraggable, IPointerClickHandler, IObjectReceiver
         {
             SetState(CowState.Stuck);
         }
+    }
+
+    public bool CanReceiveItem(InventoryItem item)
+    {
+        return item.gameObject.TryGetComponent<PopcornItem>(out PopcornItem pop) && currentState == CowState.Stuck && pop.IsGrown;
+    }
+
+    public void OnReceiveItem(InventoryItem item)
+    {
+        Destroy(item.gameObject);
+        SetState(CowState.Eating);
     }
 }

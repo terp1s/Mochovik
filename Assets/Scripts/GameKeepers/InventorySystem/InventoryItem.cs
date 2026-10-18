@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.IO.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [SerializeField] protected ItemDetailPanel descriptionPanel;
     public Sprite Sprite;
@@ -31,20 +32,17 @@ public class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         descriptionPanel = FindAnyObjectByType<ItemDetailPanel>(FindObjectsInactive.Include);
     }
 
+    public virtual void Setup(GameObject obj)
+    {
+
+    }
+   
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
         wasPlaced = false;
         originalParent = transform.parent;
         canvasGroup.blocksRaycasts = false;
         transform.SetParent(GetComponentInParent<Canvas>().transform, true);
-
-        /*
-        if (Slot is not null)
-        {
-            Inventory.Instance.RemoveItem(Slot);
-            Slot = null;
-        }
-        */
     }
 
     public virtual void OnDrag(PointerEventData eventData)

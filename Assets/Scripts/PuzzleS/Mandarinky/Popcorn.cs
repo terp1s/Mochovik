@@ -3,6 +3,10 @@ using UnityEngine.EventSystems;
 
 public class Popcorn : WorldDraggable, IEdible
 {
+    public static Popcorn Instance;
+    public static bool ExistsInWorld => Instance != null;
+
+
     public bool IsDraggable = true;
     public bool IsGrown = false;
 
@@ -13,9 +17,27 @@ public class Popcorn : WorldDraggable, IEdible
     protected override void Awake()
     {
         base.Awake();
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         animator = GetComponent<Animator>();
         circleCollider = GetComponent<CircleCollider2D>();
     }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
+    }
+
     protected override bool CanStartDrag(PointerEventData eventData)
     {
         return IsDraggable;
@@ -25,8 +47,6 @@ public class Popcorn : WorldDraggable, IEdible
     {
         base.OnDragStart();
         originalPosition = transform.position;
-
-
     }
 
 
@@ -56,5 +76,11 @@ public class Popcorn : WorldDraggable, IEdible
     public void SetToGrown()
     {
         IsGrown = true;
+    }
+
+    public void SpawnAsGrown()
+    {
+        SetToGrown();
+        animator.SetTrigger("SpawnAsGrown");
     }
 }

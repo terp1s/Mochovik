@@ -4,9 +4,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MasonJar : WorldDraggable, IObjectReceiver, IPointerClickHandler
+public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
 {
-    [SerializeField] MasonJarItem inventoryJar;
+    public static MasonJar Instance;
+    public static bool ExistsInWorld => Instance != null;
+
     [SerializeField] GameObject CowPrefab;
     public float burnTime = 10f;
 
@@ -19,9 +21,26 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IPointerClickHandler
     private new void Awake()
     {
         base.Awake();
+
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         cowRoamingArea = GetComponentInChildren<CowRoamingArea>();
 
+    }
+
+    private void OnDestroy()
+    {
+        if (Instance == this)
+        {
+            Instance = null;
+        }
     }
 
     private void Start()
@@ -61,17 +80,6 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IPointerClickHandler
 
         isDraggable = true; // Re-enable dragging after burning
     }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (eventData.dragging) return;
-
-        inventoryJar.numberOfCows = cowsInJar;
-
-        Inventory.Instance.AddItem(inventoryJar);
-        Destroy(gameObject);
-    }
-
     public bool CanReceiveObject(WorldDraggable obj)
     {
         if (obj.gameObject.TryGetComponent<Cow>(out Cow cow))
@@ -134,5 +142,20 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IPointerClickHandler
         Debug.Log("Drag started for MasonJar");
     }
 
+    public bool CanReceiveItem(InventoryItem item)
+    {
+        if (item.gameObject.TryGetComponent<PopcornItem>(out PopcornItem pop) && pop.IsGrown)
+        {
+            return true;
+        }
 
+        return false;
+    }
+
+    public void OnReceiveItem(InventoryItem item)
+    {
+        GameObject pop = item.SpawnInWorld(Vector3.zero, transform);
+
+        RecievePopcorn(pop.GetComponent<Popcorn>());
+    }
 }

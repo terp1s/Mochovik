@@ -128,6 +128,6 @@ MonoBehaviour:
   descriptionPanel: {fileID: 0}
   Sprite: {fileID: -4319967955681853576, guid: 0e4c60154f80cb046ae38eddf1d0abcc, type: 3}
   UiPrefab: {fileID: 2718186221251335594}
-  WorldPrefab: {fileID: 0}
+  WorldPrefab: {fileID: 3112349215933431862, guid: 8fbb5cbd53f5b624fb84e9a2d5949154, type: 3}
   wasPlaced: 0
   Instructions: {fileID: 4995816798821715208, guid: 69e0926ff13cf7b40aefcddc6a51063e, type: 3}

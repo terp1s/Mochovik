@@ -18,8 +18,9 @@ public class Inventory : MonoBehaviour
         Instance = this;
     }
 
-    public void AddItem(InventoryItem item)
+    public void AddItem(InventoryItem item, GameObject obj)
     {
+        item.Setup(obj);
         GameObject slot = Instantiate(slotPrefab, inventoryUI);
         slots.Add(slot.GetComponent<InventorySlot>());
 
@@ -33,15 +34,10 @@ public class Inventory : MonoBehaviour
         slots.Remove(slot);
         Destroy(slot.gameObject);
     }
-    /*
-    public void OnDrop(PointerEventData eventData)
+    public bool HasItem<T>() where T : InventoryItem
     {
-        if(eventData.pointerDrag.TryGetComponent<InventoryItem>(out InventoryItem item))
-        {
-            AddItem(item);
-            Destroy(eventData.pointerDrag);
-        }
-    }*/
+        return slots.Any(slot => slot != null && slot.InventoryItem is T);
+    }
 }
 
 

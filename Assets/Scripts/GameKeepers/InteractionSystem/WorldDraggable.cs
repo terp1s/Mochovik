@@ -45,7 +45,13 @@ public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHa
         originalParent = transform.parent;
         originalNiche = CurrentNiche;
 
-        RemoveFromNiche();
+
+        if (CurrentNiche != null)
+        {
+            CurrentNiche.OnObjectHeld();
+        }
+
+        transform.SetParent(null);
 
 
         zDistanceToCamera = Mathf.Abs(Camera.main.transform.position.z - transform.position.z);
@@ -76,7 +82,6 @@ public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHa
         }
 
         bool wasPlaced = false;
-
         IObjectReceiver receiver = FindValidReceiver(eventData);
 
         if (receiver != null && receiver.CanReceiveObject(this))
@@ -84,22 +89,32 @@ public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHa
             receiver.OnReceiveObject(this);
             wasPlaced = true;
 
-            if (receiver is INiche niche)
+            
+            if (originalNiche != null)
             {
-                CurrentNiche = niche;
+                originalNiche.OnObjectRemoved();
+            }
+
+            if (receiver is INiche socket)
+            {
+                CurrentNiche = socket;
+            }
+            else
+            {
+                CurrentNiche = null;
             }
         }
 
-
         if (!wasPlaced)
         {
-            transform.position = originalPosition;
+            
             transform.SetParent(originalParent);
+            transform.position = originalPosition;
+            CurrentNiche = originalNiche;
 
-            if (originalNiche != null && originalNiche is IObjectReceiver oldReceiver && oldReceiver.CanReceiveObject(this))
+            if (originalNiche != null)
             {
-                oldReceiver.OnReceiveObject(this);
-                CurrentNiche = originalNiche;
+                originalNiche.OnObjectReturned();
             }
         }
 

@@ -1,34 +1,37 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-public class ValveHandle : MonoBehaviour, IPointerClickHandler
+public class ValveHandle : WorldDraggable, IPointerClickHandler
 {
     private Animator animator;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    private bool placedOnValve = false;
+    private bool hasTurned = false;
     [SerializeField] private CircleCollider2D circleCollider;
 
-    private void Awake()
+    private new void Awake()
     {
+        base.Awake();
+
         animator = GetComponent<Animator>();
-        circleCollider = GetComponent<CircleCollider2D>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
-        
+        circleCollider = GetComponent<CircleCollider2D>();        
     }
 
     public void Place()
     {
         animator.SetTrigger("Placed");
+        GetComponent<CollectOnClick>().enabled = false;
+        placedOnValve = true;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Valve handle has begun turning!");
-        animator.SetTrigger("Turn");
-    }
+        if (placedOnValve && !hasTurned)
+        {
+            Debug.Log("Valve handle has begun turning!");
 
-    public void FinishedTurning()
-    {
-        Debug.Log("Valve handle finished turning!");
-        GameEventsManager.instance.puzzleEvents.ValveHandleTurned();
+            hasTurned = true;
+            GameEventsManager.instance.puzzleEvents.ValveHandleTurned();
+            animator.SetTrigger("Turn");
+        }
     }
 
     public void UpdateColliderSize()
@@ -37,5 +40,10 @@ public class ValveHandle : MonoBehaviour, IPointerClickHandler
 
         circleCollider.radius = Mathf.Max(spriteSize.x, spriteSize.y) / 2f;
         circleCollider.offset = spriteRenderer.sprite.bounds.center;
+    }
+
+    protected override bool CanStartDrag(PointerEventData eventData)
+    {
+        return !placedOnValve;
     }
 }

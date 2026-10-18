@@ -28,7 +28,7 @@ public class FishItem : InventoryItem
         GetComponent<RectTransform>().sizeDelta = puzzlePiece.Size;
         base.OnBeginDrag(eventData);
     }
-
+    /*
     public override void OnEndDrag(PointerEventData eventData)
     {
         base.OnEndDrag(eventData);
@@ -39,7 +39,7 @@ public class FishItem : InventoryItem
             {
                 Inventory.Instance.RemoveItem(Slot);
             }
-            Inventory.Instance.AddItem(this);
+            Inventory.Instance.AddItem(this, gameObject);
             Destroy(gameObject);
         }
         else
@@ -47,5 +47,5 @@ public class FishItem : InventoryItem
             Inventory.Instance.RemoveItem(Slot);
         }
     }
-
+    */
 }
