@@ -18,17 +18,29 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
 
     [Header("Settings")]
     public float travelSpeed = 3.0f;
-    public Vector2 lowerPosition;
-    public Vector2 upperPosition;
+    public Transform LowerDeck;
+    public Transform UpperDeck;
+
+    private Vector2 lowerPosition;
+    private Vector2 upperPosition;
 
     [Header("State")]
     public MandarinkyCapState CurrentState = MandarinkyCapState.LowerDeck;
     public bool IsEmpty => cargo is null;
 
     private GameObject cargo;
-
+    private Animator animator;
     private Coroutine moveCoroutine;
 
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+    private void Start()
+    {
+        lowerPosition = LowerDeck.position;
+        upperPosition = UpperDeck.position;
+    }
     private void OnEnable()
     {
         GameEventsManager.instance.puzzleEvents.OnCowsBurned += MoveDown;
@@ -41,50 +53,35 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
 
     public void MoveUp()
     {
-        if (CurrentState != MandarinkyCapState.UpperDeck)
+        
+        if (CurrentState == MandarinkyCapState.LowerDeck)
         {
-            StartMove(upperPosition, MandarinkyCapState.UpperDeck);
+            animator.SetTrigger("Up");
         }
     }
 
     public void MoveDown()
     {
-        if (CurrentState != MandarinkyCapState.LowerDeck)
+        if (CurrentState == MandarinkyCapState.UpperDeck)
         {
-            StartMove(lowerPosition, MandarinkyCapState.LowerDeck);
+            animator.SetTrigger("Down");
         }
     }
+   
 
-    private void StartMove(Vector2 target, MandarinkyCapState endState)
+    public void ArrivedAtUpperDeck()
     {
-        if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-
-        moveCoroutine = StartCoroutine(MoveRoutine(target, endState));
-    }
-
-    private IEnumerator MoveRoutine(Vector2 target, MandarinkyCapState endState)
-    {
-        CurrentState = MandarinkyCapState.Moving;
-
-        while (Vector2.Distance(transform.localPosition, target) > 0.01f)
-        {
-            transform.localPosition = Vector2.MoveTowards(
-                transform.localPosition,
-                target,
-                travelSpeed * Time.deltaTime
-            );
-            yield return null;
-        }
-
-        transform.localPosition = target;
-        CurrentState = endState;
+        CurrentState = MandarinkyCapState.UpperDeck;
 
         if (CurrentState == MandarinkyCapState.UpperDeck && !IsEmpty)
         {
             GameEventsManager.instance.puzzleEvents.CargoDelivered(cargo);
         }
+    }
 
-        moveCoroutine = null;
+    public void ArrivedAtLowerDeck()
+    {
+        CurrentState = MandarinkyCapState.LowerDeck;
     }
 
     public bool CanReceiveItem(InventoryItem item)

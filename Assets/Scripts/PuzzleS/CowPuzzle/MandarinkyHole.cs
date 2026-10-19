@@ -5,10 +5,19 @@ using UnityEngine.EventSystems;
 public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INiche
 {
     [SerializeField] private MandarinkyCapElevator elevator;
+    [SerializeField] private GameObject shadow;
     private GameObject obj;
-    public bool IsOccupied { get; private set; } = false;
+    public bool IsOccupied  => obj != null;
 
-   
+    private void Start()
+    {
+        if(transform.childCount > 0)
+        {
+            obj = transform.GetChild(0).gameObject;
+            SetNicheForObject();
+        }
+       
+    }
     public bool CanReceiveItem(InventoryItem item)
     {
         return !IsOccupied;
@@ -26,27 +35,29 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
 
     public void OnObjectHeld()
     {
+        shadow.SetActive(false);
     }
 
     public void OnObjectRemoved()
     {
-        IsOccupied = false;
+        obj = null;
+        shadow.SetActive(false);
     }
 
     public void OnObjectReturned()
     {
         obj.transform.SetParent(transform);
         obj.transform.localPosition = new Vector3(0, 0, -0.01f);
+        shadow.SetActive(true);
         FitObject(obj);
-        IsOccupied = true;
     }
 
     public void OnReceiveItem(InventoryItem item)
     {
         obj = item.SpawnInWorld(new Vector3(0, 0, -0.01f), this.transform);
         SetNicheForObject();
-        IsOccupied = true;
         FitObject(obj);
+        shadow.SetActive(true);
     }
 
     public void OnReceiveObject(WorldDraggable drop)
@@ -56,7 +67,8 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
         obj.transform.SetParent(transform);
         obj.transform.localPosition = new Vector3(0, 0, -0.01f);
         FitObject(obj);
-        IsOccupied = true;
+        shadow.SetActive(true);
+
     }
 
     private void SetNicheForObject()

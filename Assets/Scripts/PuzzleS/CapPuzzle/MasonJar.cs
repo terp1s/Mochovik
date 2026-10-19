@@ -10,13 +10,14 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
     public static bool ExistsInWorld => Instance != null;
 
     [SerializeField] GameObject CowPrefab;
-    public float burnTime = 10f;
+    public float burnTime = 7f;
 
 
     CowRoamingArea cowRoamingArea;
     public int cowsInJar = 0;
     public bool IsFull => cowsInJar == 3;
     private bool isDraggable = true;
+    private Animator glowAnimator;
 
     private new void Awake()
     {
@@ -32,6 +33,7 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
 
         SpriteRenderer sr = GetComponent<SpriteRenderer>();
         cowRoamingArea = GetComponentInChildren<CowRoamingArea>();
+        glowAnimator = GetComponentInChildren<Animator>();
 
     }
 
@@ -59,17 +61,15 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
             cow.GetComponent<FlyMovement>().pondLocation = this.transform;
         }
     }
-
-    public void PlacedJar(string drop, MasonJar jar)
-    {
-        if (drop is not "mandarinky" || jar is null) { return; }
-    }
-
     public IEnumerator BurnCows() 
     {
         isDraggable = false;  // Disable dragging while burning
 
+        glowAnimator.SetTrigger("FadeIn");
+
         yield return new WaitForSeconds(burnTime);
+
+        glowAnimator.SetTrigger("FadeOut");
 
         if (CurrentNiche is MandarinkyHole niche)
         {

@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class Mandarinky : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField] MandarinkyHole hole;
+    [SerializeField] Animator smokeAnimator;
+    [SerializeField] float burnToEffectDelay = 0.5f;
     
     MandarinkyCapElevator capElevator;
     MandarinkyCap cap;
@@ -33,31 +36,36 @@ public class Mandarinky : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         hole.gameObject.SetActive(true);
-
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void CowsFed()
     {
         if (cap.IsSealed)
         {
-            Smoke();
+            StartCoroutine(Smoke());
         }
         else
         {
-            fire.StartFire();
-            Elevator();
+            StartCoroutine(Fire());
         }
     }
 
-    void Smoke()
+    private IEnumerator Smoke()
     {
+        yield return new WaitForSeconds(burnToEffectDelay);
+
         Debug.Log("Smoke effect triggered!");
+        smokeAnimator.SetTrigger("Smoke");
     }
 
   
 
-    void Elevator()
+    private IEnumerator Fire()
     {
+        yield return new WaitForSeconds(burnToEffectDelay);
+        fire.StartFire();
+        yield return new WaitForSeconds(burnToEffectDelay);
         capElevator.MoveUp();
     }
 

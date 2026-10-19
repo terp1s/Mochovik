@@ -93,7 +93,7 @@ public class Cow : WorldDraggable, IPointerClickHandler, IObjectReceiver, IItemR
     {
         transform.SetParent(parent);
         transform.localPosition = new Vector3(0, 0, -0.1f);
-        transform.localScale *= 0.15f;
+        transform.localScale *= 0.5f;
         IsInJar = true;
         movement.roamingArea = area;
         GetComponent<Collider2D>().enabled = false;

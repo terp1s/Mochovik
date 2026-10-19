@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
 public class ValveHandle : WorldDraggable, IPointerClickHandler
@@ -27,11 +28,16 @@ public class ValveHandle : WorldDraggable, IPointerClickHandler
         if (placedOnValve && !hasTurned)
         {
             Debug.Log("Valve handle has begun turning!");
-
-            hasTurned = true;
-            GameEventsManager.instance.puzzleEvents.ValveHandleTurned();
-            animator.SetTrigger("Turn");
+            StartCoroutine(ValveWaterSynchornization());
         }
+    }
+
+    private IEnumerator ValveWaterSynchornization()
+    {
+        animator.SetTrigger("Turn");
+        yield return new WaitForSeconds(0.5f);
+        hasTurned = true;
+        GameEventsManager.instance.puzzleEvents.ValveHandleTurned();
     }
 
     public void UpdateColliderSize()
