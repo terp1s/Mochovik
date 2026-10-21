@@ -43,6 +43,11 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
         originalParent = transform.parent;
         canvasGroup.blocksRaycasts = false;
         transform.SetParent(GetComponentInParent<Canvas>().transform, true);
+
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.SetDragging(true);
+        }
     }
 
     public virtual void OnDrag(PointerEventData eventData)
@@ -58,6 +63,7 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
 
         Debug.Log($"Mouse screen: {eventData.position}");
         Debug.Log($"Mouse world: {mousePosition}");
+
 
         RaycastHit2D[] hits = Physics2D.RaycastAll(
             mousePosition,
@@ -82,7 +88,6 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
 
         if (wasPlaced)
         {
-            // Successfully placed in the world: delete the slot and destroy this item
             if (Slot != null)
             {
                 Inventory.Instance.RemoveItem(Slot);
@@ -91,8 +96,12 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
         }
         else
         {
-            // Drop failed or cancelled: Snap right back into the existing slot!
             SnapBackToSlot();
+        }
+
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.SetDragging(false);
         }
     }
 

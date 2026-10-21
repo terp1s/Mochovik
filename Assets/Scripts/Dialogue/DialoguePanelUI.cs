@@ -46,7 +46,6 @@ public class DialoguePanelUI : MonoBehaviour
     {
         contentParent.SetActive(false);
 
-        // reset anything for next time
         ResetPanel();
     }
 
@@ -57,11 +56,9 @@ public class DialoguePanelUI : MonoBehaviour
             choiceButton.gameObject.SetActive(false);
         }
 
-        // Store choices to show later
         currentAvailableChoices = dialogueChoices;
 
         
-        // defensive check - if there are more choices coming in than we can support, log an error
         if (dialogueChoices.Count > choiceButtons.Length)
         {
             Debug.LogError("More dialogue choices ("
@@ -74,7 +71,6 @@ public class DialoguePanelUI : MonoBehaviour
     {
         if (currentAvailableChoices == null || currentAvailableChoices.Count == 0) return;
 
-        // Enable and set info for buttons
         int choiceButtonIndex = currentAvailableChoices.Count - 1;
         for (int inkChoiceIndex = 0; inkChoiceIndex < currentAvailableChoices.Count; inkChoiceIndex++)
         {
@@ -94,7 +90,6 @@ public class DialoguePanelUI : MonoBehaviour
             choiceButtonIndex--;
         }
 
-        // Clear storage so they don't show twice
         currentAvailableChoices = null;
     }
 

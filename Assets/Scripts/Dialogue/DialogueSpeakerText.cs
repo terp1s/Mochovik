@@ -2,7 +2,6 @@ using Ink.Runtime;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.Rendering;
 using UnityEngine;
 
 public class DialogueSpeakerText : MonoBehaviour
@@ -15,6 +14,7 @@ public class DialogueSpeakerText : MonoBehaviour
 
     private Coroutine typingCoroutine;
     private string currentLine;
+
 
     [SerializeField] private float letterDelay = 0.04f;
     [SerializeField] private float commaDelay = 0.20f;
@@ -58,7 +58,7 @@ public class DialogueSpeakerText : MonoBehaviour
             if (typingCoroutine != null)
                 StopCoroutine(typingCoroutine);
 
-            typingCoroutine = StartCoroutine(TypeLine(currentLine));
+            typingCoroutine = StartCoroutine(TypewriterRoutine(currentLine));
             GameEventsManager.instance.dialogueEvents.TypingStarted();
         }
     }
@@ -72,54 +72,77 @@ public class DialogueSpeakerText : MonoBehaviour
         dialogueText.maxVisibleCharacters = currentLine.Length;
         isTyping = false;
 
-        // Notify that we are done so choices can show up
+        if (DialogueAudioPlayer.Instance != null)
+            DialogueAudioPlayer.Instance.StopAudio();
+
         GameEventsManager.instance.dialogueEvents.TypingFinished();
     }
-
-    IEnumerator TypeLine(string line)
+    private IEnumerator TypewriterRoutine(string fullText)
     {
         isTyping = true;
 
-        dialogueText.text = line;
+        //fullText = fullText.TrimEnd('\r', '\n');
+
+        dialogueText.text = fullText;
         dialogueText.maxVisibleCharacters = 0;
 
-        foreach (char c in line)
+
+
+        if (DialogueAudioPlayer.Instance != null)
+            DialogueAudioPlayer.Instance.ResetCounter();
+
+        for (int i = 0; i < fullText.Length; i++)
         {
+            char currentChar = fullText[i];
+
             dialogueText.maxVisibleCharacters++;
 
-            if (c == ' ')
+
+            if (DialogueAudioPlayer.Instance != null)
+                DialogueAudioPlayer.Instance.PlayCharacterSound(currentChar);
+
+
+            if (currentChar == ' ')
+            {
                 continue;
+            }
+
+            if (i >= fullText.Length - 1) break;
 
             float delay = letterDelay;
 
-            switch (c)
+            switch (currentChar)
             {
                 case ',':
                     delay = commaDelay;
                     break;
-
                 case '.':
                 case '!':
                 case '?':
                     delay = sentenceDelay;
                     break;
-
                 case '\n':
                     delay = newLineDelay;
                     break;
             }
-
             yield return new WaitForSeconds(delay);
         }
 
-        GameEventsManager.instance.dialogueEvents.TypingFinished();
+        if (DialogueAudioPlayer.Instance != null)
+            DialogueAudioPlayer.Instance.StopAudio();
 
         isTyping = false;
+        GameEventsManager.instance.dialogueEvents.TypingFinished();
     }
 
-    public void ResetPanel()
+    public void ClearPanel()
     {
         dialogueText.text = "";
+
+    }
+    public void ResetPanel()
+    {
+        ClearPanel();
         isCurrentSpeaker = false;
     }
 }

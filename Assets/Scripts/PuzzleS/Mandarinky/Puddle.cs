@@ -60,7 +60,7 @@ public class Puddle : MonoBehaviour, IObjectReceiver, IItemReceiver
     {
         Popcorn pop = item.SpawnInWorld(spawnPoint.localPosition, transform).GetComponent<Popcorn>();
 
-        if (pop != null)
+        if (pop != null && !pop.IsGrown)
         {
             pop.Grow();
         }

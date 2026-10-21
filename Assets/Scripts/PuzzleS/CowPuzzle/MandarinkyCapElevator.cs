@@ -20,17 +20,19 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
     public float travelSpeed = 3.0f;
     public Transform LowerDeck;
     public Transform UpperDeck;
+    public Transform placementPoint;
 
     private Vector2 lowerPosition;
     private Vector2 upperPosition;
 
     [Header("State")]
     public MandarinkyCapState CurrentState = MandarinkyCapState.LowerDeck;
-    public bool IsEmpty => cargo is null;
+    public bool IsEmpty => cargo == null;
 
     private GameObject cargo;
     private Animator animator;
     private Coroutine moveCoroutine;
+    private int originalCargoSortIndex;
 
     private void Awake()
     {
@@ -92,6 +94,8 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
     public void OnReceiveItem(InventoryItem item)
     {
         cargo = item.SpawnInWorld(Vector3.zero, transform);
+        cargo.GetComponent<SpriteRenderer>().sortingOrder = 6;
+        AlignCargo();
         
     }
     public bool CanReceiveObject(WorldDraggable item)
@@ -101,11 +105,13 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
 
     public void OnReceiveObject(WorldDraggable item)
     {
+        originalCargoSortIndex = item.GetComponent<SpriteRenderer>().sortingOrder;
         cargo = item.gameObject;
         cargo.transform.SetParent(this.transform);
-        cargo.transform.localPosition = Vector3.zero;
+        AlignCargo();
+        cargo.GetComponent<SpriteRenderer>().sortingOrder = 6;
     }
-   
+
     public bool CanRemoveObject()
     {
         return CurrentState == MandarinkyCapState.LowerDeck;
@@ -117,11 +123,30 @@ public class MandarinkyCapElevator : MonoBehaviour, IItemReceiver, IObjectReceiv
 
     public void OnObjectHeld()
     {
+        cargo.GetComponent<SpriteRenderer>().sortingOrder = originalCargoSortIndex; 
     }
 
     public void OnObjectReturned()
     {
-        cargo.transform.localPosition = Vector3.zero;
+        AlignCargo();
 
+    }
+
+    private void AlignCargo()
+    {
+        SpriteRenderer sr = cargo.GetComponent<SpriteRenderer>();
+
+        if (sr == null)
+            return;
+
+        // Find the bottom-center of the item's visible sprite
+        Vector3 bottomCenter = new Vector3(
+            sr.bounds.center.x,
+            sr.bounds.min.y,
+            sr.bounds.center.z
+        );
+
+        // Move the item so its bottom-center meets the placement point
+        cargo.transform.position += placementPoint.position - bottomCenter;
     }
 }

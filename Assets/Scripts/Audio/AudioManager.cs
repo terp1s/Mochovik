@@ -15,6 +15,13 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, Sound> soundDictionary;
     private Dictionary<string, AudioSource> loopingSources = new Dictionary<string, AudioSource>();
 
+    [Header("Music Library")]
+    public List<Sound> music;
+    private Dictionary<string, Sound> musicDictionary;
+
+    private Coroutine musicFadeRoutine;
+    private string currentMusicName = "";
+
 
     private void Awake()
     {
@@ -26,15 +33,88 @@ public class AudioManager : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // Initialize Dictionary for fast lookup
         soundDictionary = new Dictionary<string, Sound>();
         foreach (Sound s in sounds)
         {
             soundDictionary[s.name] = s;
         }
+
+        musicDictionary = new Dictionary<string, Sound>();
+        foreach (Sound m in music)
+        {
+            musicDictionary[m.name] = m;
+        }
     }
 
-    // Play a sound once (for UI, hits, dialogue triggers)
+    public void PlayMusic(string musicName, float fadeDuration = 1f)
+    {
+        if (currentMusicName == musicName && musicSource.isPlaying)
+            return;
+
+        if (!musicDictionary.ContainsKey(musicName))
+        {
+            Debug.LogWarning($"Music: '{musicName}' not found in AudioManager!");
+            return;
+        }
+
+        Sound newMusic = musicDictionary[musicName];
+        currentMusicName = musicName;
+
+        if (musicFadeRoutine != null)
+            StopCoroutine(musicFadeRoutine);
+
+        musicFadeRoutine = StartCoroutine(FadeMusicRoutine(newMusic, fadeDuration));
+    }
+
+    private IEnumerator FadeMusicRoutine(Sound newMusic, float duration)
+    {
+        float startVolume = musicSource.volume;
+
+        if (musicSource.isPlaying && duration > 0f)
+        {
+            for (float t = 0; t < duration * 0.5f; t += Time.deltaTime)
+            {
+                musicSource.volume = Mathf.Lerp(startVolume, 0f, t / (duration * 0.5f));
+                yield return null;
+            }
+        }
+
+        musicSource.clip = newMusic.clip;
+        musicSource.pitch = newMusic.pitch;
+        musicSource.loop = true;
+        musicSource.Play();
+
+        float targetVolume = newMusic.volume;
+        if (duration > 0f)
+        {
+            for (float t = 0; t < duration * 0.5f; t += Time.deltaTime)
+            {
+                musicSource.volume = Mathf.Lerp(0f, targetVolume, t / (duration * 0.5f));
+                yield return null;
+            }
+        }
+
+        musicSource.volume = targetVolume;
+    }
+
+    public void StopMusic(float fadeDuration = 1f)
+    {
+        currentMusicName = "";
+        if (musicFadeRoutine != null) StopCoroutine(musicFadeRoutine);
+        musicFadeRoutine = StartCoroutine(FadeOutMusicRoutine(fadeDuration));
+    }
+
+    private IEnumerator FadeOutMusicRoutine(float duration)
+    {
+        float startVolume = musicSource.volume;
+        for (float t = 0; t < duration; t += Time.deltaTime)
+        {
+            musicSource.volume = Mathf.Lerp(startVolume, 0f, t / duration);
+            yield return null;
+        }
+        musicSource.Stop();
+    }
+
     public void PlaySFX(string soundName)
     {
         if (soundDictionary.ContainsKey(soundName))
@@ -53,10 +133,8 @@ public class AudioManager : MonoBehaviour
     {
         if (soundDictionary.TryGetValue(soundName, out Sound s))
         {
-            // If it's already playing, don't start it again
             if (loopingSources.ContainsKey(soundName)) return;
 
-            // Create a temporary AudioSource for this specific loop
             AudioSource newSource = gameObject.AddComponent<AudioSource>();
             newSource.clip = s.clip;
             newSource.volume = s.volume;
@@ -73,17 +151,17 @@ public class AudioManager : MonoBehaviour
         if (loopingSources.ContainsKey(soundName))
         {
             loopingSources[soundName].Stop();
-            Destroy(loopingSources[soundName]); // Clean up the component
+            Destroy(loopingSources[soundName]); 
             loopingSources.Remove(soundName);
         }
     }
 
-    // Play looping music with a simple fade (optional)
-    public void PlayMusic(string soundName)
+    /*
+    public void PlayMusic(string musicName)
     {
-        if (soundDictionary.ContainsKey(soundName))
+        if (musicDictionary.ContainsKey(musicName))
         {
-            Sound s = soundDictionary[soundName];
+            Sound s = musicDictionary[musicName];
             musicSource.clip = s.clip;
             musicSource.volume = s.volume;
             musicSource.loop = true;
@@ -95,4 +173,5 @@ public class AudioManager : MonoBehaviour
     {
         musicSource.Stop();
     }
+    */
 }

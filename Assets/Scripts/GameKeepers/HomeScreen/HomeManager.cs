@@ -15,7 +15,6 @@ public class HomeManager : MonoBehaviour
         else
         {
             Instance = this;
-            DontDestroyOnLoad(this.gameObject);
         }
     }
 

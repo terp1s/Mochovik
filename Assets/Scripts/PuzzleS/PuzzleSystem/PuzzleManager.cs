@@ -13,13 +13,16 @@ public class PuzzleManager : MonoBehaviour
 {
     public static PuzzleManager Instance { get; private set; }
 
+    private Dictionary<string, IPuzzle> solvedPuzzles = new();
+
     private Dictionary<string, IPuzzle> puzzles = new();
+
 
     private void Awake()
     {
         if (Instance != null && Instance != this)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
         else
         {
@@ -37,12 +40,13 @@ public class PuzzleManager : MonoBehaviour
         if (!puzzles.ContainsKey(puzzle.PuzzleId))
             return;
 
+        solvedPuzzles.Add(puzzle.PuzzleId, puzzle);
         PuzzleCompleted?.Invoke(puzzle.PuzzleId);
     }
 
     public bool IsCompleted(string id)
     {
-        return puzzles.ContainsKey(id);
+        return solvedPuzzles.ContainsKey(id);
     }
 
     public event Action<string> PuzzleCompleted;

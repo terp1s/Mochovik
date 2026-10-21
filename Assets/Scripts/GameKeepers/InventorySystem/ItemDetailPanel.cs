@@ -4,10 +4,6 @@ public class ItemDetailPanel : MonoBehaviour
 {
     [SerializeField] GameObject currentPanel;
 
-    private void Awake()
-    {
-        //gameObject.SetActive(false);
-    }
     public void Show(GameObject panelPrefab)
     {
         Close();

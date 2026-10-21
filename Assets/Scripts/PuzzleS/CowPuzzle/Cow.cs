@@ -63,7 +63,7 @@ public class Cow : WorldDraggable, IPointerClickHandler, IObjectReceiver, IItemR
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(currentState != CowState.Stuck && currentState != CowState.Eating)
+        if(currentState != CowState.Stuck && currentState != CowState.Eating && currentState != CowState.Fleeing)
         {
             movement.OnClick(eventData);
         }
@@ -96,6 +96,7 @@ public class Cow : WorldDraggable, IPointerClickHandler, IObjectReceiver, IItemR
         transform.localScale *= 0.5f;
         IsInJar = true;
         movement.roamingArea = area;
+        
         GetComponent<Collider2D>().enabled = false;
         movement.enabled = true;
         movement.PickNewTarget();

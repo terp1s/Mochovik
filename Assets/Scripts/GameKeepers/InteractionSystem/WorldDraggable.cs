@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler/*, IPointerEnterHandler, IPointerExitHandler*/
 {
     public INiche CurrentNiche { get; private set; }
 
@@ -39,6 +39,11 @@ public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHa
         {
             eventData.pointerDrag = null;
             return;
+        }
+
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.SetDragging(true);
         }
 
         originalPosition = transform.position;
@@ -120,6 +125,11 @@ public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHa
 
         SetCollidersEnabled(true);
 
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.SetDragging(false);
+        }
+
         OnDragEnd();
     }
 
@@ -188,4 +198,21 @@ public abstract class WorldDraggable : MonoBehaviour, IBeginDragHandler, IDragHa
         CurrentNiche.OnObjectRemoved();
         CurrentNiche = null;
     }
+    /*
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.SetHover(true);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (CursorManager.Instance != null)
+        {
+            CursorManager.Instance.SetHover(false);
+        }
+    }
+    */
 }

@@ -7,6 +7,7 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
     [SerializeField] private MandarinkyCapElevator elevator;
     [SerializeField] private GameObject shadow;
     private GameObject obj;
+    [SerializeField] private Transform placementPoint;
     public bool IsOccupied  => obj != null;
 
     private void Start()
@@ -16,7 +17,7 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
             obj = transform.GetChild(0).gameObject;
             SetNicheForObject();
         }
-       
+   
     }
     public bool CanReceiveItem(InventoryItem item)
     {
@@ -47,7 +48,6 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
     public void OnObjectReturned()
     {
         obj.transform.SetParent(transform);
-        obj.transform.localPosition = new Vector3(0, 0, -0.01f);
         shadow.SetActive(true);
         FitObject(obj);
     }
@@ -65,7 +65,6 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
         obj =  drop.gameObject;
         SetNicheForObject();
         obj.transform.SetParent(transform);
-        obj.transform.localPosition = new Vector3(0, 0, -0.01f);
         FitObject(obj);
         shadow.SetActive(true);
 
@@ -85,16 +84,42 @@ public class MandarinkyHole : MonoBehaviour, IObjectReceiver, IItemReceiver, INi
 
     private void FitObject(GameObject obj)
     {
-        Vector2 holeSize = GetComponent<SpriteRenderer>().bounds.size * 0.7f;
+        SpriteRenderer holeSr = GetComponent<SpriteRenderer>();
+        SpriteRenderer objSr = obj.GetComponentInChildren<SpriteRenderer>();
 
-        obj.transform.localScale = Vector3.one; // Reset scale to 1 before fitting
-        Vector2 objSize = obj.GetComponent<SpriteRenderer>().bounds.size;
+        if (holeSr == null || objSr == null) return;
 
-        float scaleX = holeSize.x / objSize.x;
-        float scaleY = holeSize.y / objSize.y;
+        Vector2 targetSize = holeSr.bounds.size * 0.7f;
 
-        float scale = System.Math.Min(scaleX, scaleY);
+        Vector2 unscaledSpriteSize = objSr.sprite.rect.size / objSr.sprite.pixelsPerUnit;
 
-        obj.transform.localScale = new Vector3(scale, scale, 1f);
+        float targetWorldScale = Mathf.Min(targetSize.x / unscaledSpriteSize.x, targetSize.y / unscaledSpriteSize.y);
+
+        Vector3 parentScale = obj.transform.parent != null ? obj.transform.parent.lossyScale : Vector3.one;
+        obj.transform.localScale = new Vector3(
+            targetWorldScale / parentScale.x,
+            targetWorldScale / parentScale.y,
+            1f
+        );
+
+        AlignCargo(obj, objSr);
+    }
+
+    private void AlignCargo(GameObject obj, SpriteRenderer sr)
+    {
+        Vector3 bottomCenter = new Vector3(
+            sr.bounds.center.x,
+            sr.bounds.min.y,
+            sr.bounds.center.z
+        );
+
+        Vector3 offset = placementPoint.position - bottomCenter;
+        obj.transform.position += offset;
+
+        obj.transform.position = new Vector3(
+            obj.transform.position.x,
+            obj.transform.position.y,
+            placementPoint.position.z - 0.01f
+        );
     }
 }

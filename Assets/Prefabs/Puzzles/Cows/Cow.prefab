@@ -120,7 +120,7 @@ MonoBehaviour:
   roamingArea: {fileID: 0}
   pondLocation: {fileID: 0}
   drinkDuration: 5
-  chanceToVisitPond: 100
+  chanceToVisitPond: 15
 --- !u!61 &556264866045812046
 BoxCollider2D:
   m_ObjectHideFlags: 0

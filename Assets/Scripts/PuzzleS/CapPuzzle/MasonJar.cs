@@ -55,15 +55,16 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
         for (int i = 0; i < cowsInJar; i++)
         {
             GameObject cow = Instantiate(CowPrefab, transform);
-            cow.GetComponent<Cow>().Capture(this.transform, cowRoamingArea);
+            cow.GetComponent<Cow>().Capture(transform, cowRoamingArea);
             cow.GetComponent<Cow>().IsInJar = true;
             cow.GetComponent<Transform>().localPosition = Vector3.zero;
-            cow.GetComponent<FlyMovement>().pondLocation = this.transform;
+            cow.GetComponent<FlyMovement>().pondLocation = transform;
         }
     }
-    public IEnumerator BurnCows() 
+    public IEnumerator BurnCows()
     {
         isDraggable = false;  // Disable dragging while burning
+
 
         glowAnimator.SetTrigger("FadeIn");
 
@@ -71,7 +72,7 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
 
         glowAnimator.SetTrigger("FadeOut");
 
-        if (CurrentNiche is MandarinkyHole niche)
+        if (CurrentNiche is MandarinkyHole niche && IsFull)
         {
             GameEventsManager.instance.puzzleEvents.CowsBurned();
         }
@@ -87,7 +88,7 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
             return true;
         }
 
-        if(obj.gameObject.TryGetComponent<Popcorn>(out Popcorn pop) && pop.IsGrown)
+        if (obj.gameObject.TryGetComponent<Popcorn>(out Popcorn pop) && pop.IsGrown)
         {
             return true;
         }
@@ -97,13 +98,13 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
 
     public void OnReceiveObject(WorldDraggable obj)
     {
-        if(obj.gameObject.TryGetComponent<Cow>(out Cow cow))
+        if (obj.gameObject.TryGetComponent<Cow>(out Cow cow))
         {
             cow.Capture(transform, cowRoamingArea);
             cowsInJar++;
         }
 
-        if(obj.gameObject.TryGetComponent<Popcorn>(out Popcorn pop))
+        if (obj.gameObject.TryGetComponent<Popcorn>(out Popcorn pop))
         {
             RecievePopcorn(pop);
         }
@@ -114,16 +115,16 @@ public class MasonJar : WorldDraggable, IObjectReceiver, IItemReceiver
     {
         Destroy(pop.gameObject);
 
-        if (IsFull)
+        if (cowsInJar > 0)
         {
-
             // other objects need to be notified only when the jar is placed in mandarinky niche
-            if(CurrentNiche is MandarinkyHole niche)
+            if (CurrentNiche is MandarinkyHole niche)
             {
                 GameEventsManager.instance.puzzleEvents.CowsFedInMandarinky();
             }
 
             StartCoroutine(BurnCows());
+
         }
     }
 

@@ -46,6 +46,7 @@ public class FlyMovement : MonoBehaviour
     private void OnEnable()
     {
         basePosition = (cow != null && cow.IsInJar) ? transform.localPosition : transform.position;
+        //basePosition = new Vector3(0, 0, -0.01f);
 
         currentSpeed = wanderSpeed;
         targetSpeed = wanderSpeed;
@@ -93,7 +94,7 @@ public class FlyMovement : MonoBehaviour
         {
             if (cow.CurrentState == CowState.Landing)
                 StartCoroutine(DrinkAtPond());
-            else
+            else if (cow.CurrentState != CowState.Fleeing)
                 PickNewTarget();
         }
 
@@ -165,14 +166,30 @@ public class FlyMovement : MonoBehaviour
         cow.SetState(CowState.Fleeing);
 
         targetSpeed = maxFleeSpeed;
+        currentSpeed = maxFleeSpeed;
         fleeTimer = fleeBurstDuration;
 
-        Vector3 clickWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(clickSource.x, clickSource.y, Mathf.Abs(Camera.main.transform.position.z)));
-        Vector3 fleeDir = (transform.position - clickWorldPos).normalized;
+        Vector3 clickWorldPos = Camera.main.ScreenToWorldPoint(new Vector3(
+               clickSource.x,
+               clickSource.y,
+               Mathf.Abs(Camera.main.transform.position.z)
+           ));
 
-        targetPosition = transform.position + fleeDir * 5.0f;
-        targetPosition.x = Mathf.Clamp(targetPosition.x, roamingArea.Bounds.min.x, roamingArea.Bounds.max.x);
-        targetPosition.y = Mathf.Clamp(targetPosition.y, roamingArea.Bounds.min.y, roamingArea.Bounds.max.y);
+        Vector2 cowPos2D = new Vector2(transform.position.x, transform.position.y);
+        Vector2 clickPos2D = new Vector2(clickWorldPos.x, clickWorldPos.y);
+        Vector2 fleeDir2D = (cowPos2D - clickPos2D).normalized;
+
+
+        if (fleeDir2D == Vector2.zero)
+            fleeDir2D = Random.insideUnitCircle.normalized;
+
+        float targetX = transform.position.x + fleeDir2D.x * 5.0f;
+        float targetY = transform.position.y + fleeDir2D.y * 5.0f;
+
+        targetX = Mathf.Clamp(targetX, roamingArea.Bounds.min.x, roamingArea.Bounds.max.x);
+        targetY = Mathf.Clamp(targetY, roamingArea.Bounds.min.y, roamingArea.Bounds.max.y);
+
+        targetPosition = new Vector3(targetX, targetY, -0.1f);
     }
 
     public void PickNewTarget()
@@ -274,4 +291,10 @@ public class FlyMovement : MonoBehaviour
             cow.SetState(CowState.Stuck);
         }
     }
+
+    public void SyncBasePositionToLocal()
+    {
+        basePosition = transform.localPosition;
+    }
+
 }

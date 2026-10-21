@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class GridTile : MonoBehaviour,/* IPointerEnterHandler, IPointerExitHandler,*/ IDropHandler
+public class GridTile : MonoBehaviour,/* IPointerEnterHandler, IPointerExitHandler,*/ UnityEngine.EventSystems.IObjectReceiver
 {
     public Vector2Int coordinates;
 

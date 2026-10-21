@@ -31,9 +31,6 @@ public class CapPuzzlePiece : WorldDraggable
             transform.localPosition = Vector3.zero;
         }
 
-
-        transform.SetParent(ParentHolder.transform, true);
-        transform.localPosition = Vector3.zero;
     }
 
     public void Detach()
@@ -43,7 +40,7 @@ public class CapPuzzlePiece : WorldDraggable
 
         ParentHolder = null;
         transform.SetParent(null);
-        transform.localPosition -= new Vector3(0, 0, 0.2f); // Move the piece slightly forward to avoid z-fighting
+        transform.localPosition -= new Vector3(0, 0, 0.2f); 
     }
 
     protected override void OnDragStart()

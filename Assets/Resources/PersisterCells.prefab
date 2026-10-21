@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inkJson: {fileID: 4900000, guid: 644db9fc638e1ee42b9933fde5c613c8, type: 3}
+  skipCooldown: 0.5
 --- !u!1 &686459610958347450
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +81,7 @@ Transform:
   - {fileID: 3833644099773606290}
   - {fileID: 7519223339974761359}
   - {fileID: 6178645970097933955}
+  - {fileID: 566942705107647596}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3283195058794852877
@@ -181,6 +183,7 @@ GameObject:
   - component: {fileID: 3456794906252242534}
   - component: {fileID: 10586701666889405}
   - component: {fileID: 8622555060478066921}
+  - component: {fileID: 2886613254970277366}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -228,6 +231,11 @@ MonoBehaviour:
     pitch: 1
   - name: hang
     clip: {fileID: 8300000, guid: 8b077c80ab8433246b154c94f40567cb, type: 3}
+    volume: 1
+    pitch: 1
+  music:
+  - name: snail
+    clip: {fileID: 8300000, guid: d28ca7fc01030004484f79d67a4c3d97, type: 3}
     volume: 1
     pitch: 1
 --- !u!82 &8622555060478066921
@@ -327,6 +335,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2886613254970277366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596476751078733184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce5cea5af0422224ca2f63a29165aeff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DialogueAudioPlayer
+  dialogueBlips:
+  - {fileID: 8300000, guid: fdec5422b36892a49bf6ebe9b4c49238, type: 3}
+  - {fileID: 8300000, guid: e47c420f64debf146b8dafa6ffcfdf9b, type: 3}
+  - {fileID: 8300000, guid: a774452e1090f4e44a0928d419e96577, type: 3}
+  - {fileID: 8300000, guid: 59e055e8a34e3d44f96a284e74401eed, type: 3}
+  - {fileID: 8300000, guid: 65930d320b1f16048ac13e6d268d293b, type: 3}
+  minPitch: 0.85
+  maxPitch: 1.15
+  characterFrequency: 1
 --- !u!1 &7012504603962745089
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +400,73 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9116905cf630916449a7f37874d35739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7355805953831685862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 566942705107647596}
+  - component: {fileID: 2361768968030352302}
+  m_Layer: 0
+  m_Name: CursorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &566942705107647596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355805953831685862}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5031906850869175960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2361768968030352302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7355805953831685862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7a2ecccadf8e184b8db9f826ca37b07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CursorManager
+  defaultCursor:
+    type: 0
+    texture: {fileID: 2800000, guid: 106d8c584d72ceb439e769ed0e0fe0c0, type: 3}
+    hotspot: {x: 150, y: 34}
+  hoverCursor:
+    type: 1
+    texture: {fileID: 2800000, guid: 9a328f306e4681b4fa39db8ba0da5fd8, type: 3}
+    hotspot: {x: 150, y: 50}
+  grabCursor:
+    type: 2
+    texture: {fileID: 2800000, guid: 19267ebb4bd9114498447659d4436c62, type: 3}
+    hotspot: {x: 150, y: 30}
+  clickCursor:
+    type: 3
+    texture: {fileID: 2800000, guid: 19267ebb4bd9114498447659d4436c62, type: 3}
+    hotspot: {x: 150, y: 30}
+  clickFeedbackDuration: 0.1
+  interactableLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  NoCursorScenes:
+  - Home
+  - Intro
 --- !u!1 &8506093362024466712
 GameObject:
   m_ObjectHideFlags: 0

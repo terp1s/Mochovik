@@ -33,4 +33,8 @@ public class DialogueChoiceButton : MonoBehaviour, ISelectHandler
         GameEventsManager.instance.dialogueEvents.UpdateChoiceIndex(choiceIndex);
     }
 
+    public void ClearButton()
+    {
+        choiceText.text = "";
+    }
 }

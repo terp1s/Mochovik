@@ -1,6 +1,7 @@
 -> intro
 
 === intro ===
+#scene:living_room
  #loop_sfx:ring
  #wait:2
 * [\* Zvedni telefon\*] -> pickup1
@@ -11,14 +12,14 @@
 #sfx:hang
 #wait:1
 
-Čau XXX, jak jde život? Dlouho jsem o tobě neslyšel #speaker:scientist
+Čau XXX, jak jde život? Dlouho jsem o tobě neslyšel. #speaker:scientist
 
-No nic moc, včera měla Kája narozeniny a hrozně se těšila na trampolínu #speaker:player
+No nic moc, včera měla Kája narozeniny a hrozně se těšila na trampolínu. #speaker:player
 No ale znáš naše sousedy, ty by se z toho randálu zcvokli, 
-tak jsem tu trampolinu postavil do garáže 
-žejo 
-No a teď mám na krku naštvaný rodiče a policii
-žejo
+tak jsem tu trampolínu postavil do garáže.
+Žejo. 
+No a teď mám na krku naštvaný rodiče a policii.
+Žejo.
 ...
 Tyjo, Lucka by mohla vědět, jak z toho
 
@@ -26,16 +27,21 @@ Kdo? #speaker:scientist
 
 No Lucka z gymplu, ta co šla na práv- #speaker:player
 
-Se ptal!! #speaker:scientist
+Se ptal! #speaker:scientist
 
-* [\*Zavěs\*] #sfx:hang 
+* [\*Zavěs\*]
+#wait:0.5
+#sfx:hang 
     
-* [Tys na tý trampolíně skákal taky, ne?] #sfx:hang
+* [Tys na tý trampolíně skákal taky, ne?]
+#wait:1
+#sfx:hang
 
 - -> intro2
 
 
 === intro2 ===
+#clear
 #wait:2
 #loop_sfx:ring
 #wait:2
@@ -54,16 +60,20 @@ No ale potřebuji s něčím pomoct, proto volám.
 * [...] -> invite
 
 === invite ===
-Hele, víš co? Ja bych o tom neměl mluvit přes telefon, přijeď do XXX #speaker:scientist #sfx:hang
+Hele, víš co? Ja bych o tom neměl mluvit přes telefon, přijeď do XXX #speaker:scientist 
+#wait:1
+#sfx:hang
+#clear
+#wait:0,5
 -> lab_entry
 
 === lab_entry ===
-#sfx:car
+#scene:lab
 … #speaker:player
 …
 Co to je..? 
 
-Šnek #speaker:scientist
+Šnek. Říkáme mu Jeremy II. #speaker:scientist
 
 *[Svítí?]
 *[Turbo?] 
@@ -73,13 +83,31 @@ Co to je..?
 === no_snail ===
 Ne, ty mám v jiný laborce. #speaker:scientist
 Tenhle šnek je o hodně vzácnější.
-Koukni se na ulitu, vidíš, jak se točí doleva?
-To je ohromně vzácný, může za to mutace v Lsdia1 genu, kterou nese asi jeden z 50 000 šneků
 
-Dobře, hrozně zajimavý, ale můžeš se už dostat k věci? #speaker:player
+Nepřišlo ti někdy divný, že každý šnek, co potkáš, má pravotočivou ulitu?
 
+ *[No to teda. Jsem rád, že se tomu konečně začli vědci věnovat a neztrácejí čas třeba léčbou rakoviny...]
+    To děláme o víkendu #speaker:scientist
+    -> snail
+ *[Chceš se zeptat ještě jednou?] 
+ Ne #speaker:scientist
+ -> snail
+ *[No.. Kája o tom jednou blebtala, ale moc jsem ji neposlouchal]
+ Bez komentáře. #speaker:scientist
+ -> snail
+ 
+ === snail ===
+ #wait:0.5
+ No, není pravda, že každý šnek je pravotočivý. Existují i levotočiví šneci, právě jako náš Jeremy II. Taky se jim říká sinistrální. Docela cool, ne?
+Může za špatná exprese Lsdia1 genu, což se stane asi u jednoho z 50 000 šneků.
+Je to vlastně takový plží ekvivalent situs inversus, což je to, když má člověk zrcadlově orgány v těle.
+Doufáme, že Jeremy II by nám pomohl v porozumění této anomálie.
 
-Kdybys na chvíli zmlkl, tak možná #speaker:scientist
+Dobře, hrozně zajímavý, ale k čemu přesně jsem tu já? Já mám srdce na správném místě. #speaker:player
+Chápeš
+:p
+
+Jo... #speaker:scientist
 Problém je, že Jeremy II se prostě nemá dobře poslední dobou a nevíme, co za to může, ani co s tím.
 
 *[Zkoušeli jste ketamin?]
@@ -90,14 +118,22 @@ Problém je, že Jeremy II se prostě nemá dobře poslední dobou a nevíme, co
 === jeremyI===
 Jo, zkoušeli.
 RIP Jeremy I.
-Tentokrát to nechceme nechat náhodě a rozhodli jsme se, že vyšleme někoho do terénu
+Tentokrát to nechceme nechat náhodě a rozhodli jsme se, že vyšleme někoho přímo do terénu.
 Od toho jseš tu ty.
 Máme tady tohle zmenšovací zařízení, který jsme vynalezli.
 Ještě to má nějaké mouchy, ale není čas to odladit.
 
 Počkej, to vů- #speaker:player
+ #clear
+- -> terrarium
 
+=== terrarium ===
+#scene:blackout
+#wait:1
+#scene:terrarium
+#wait:0.5
 Je ti něco? #speaker:scientist
-Je mu hodně #spekaer:scientist2
-Kamo ty jseš fakt mrdka z krtka #speaker:player
+Je mu hodně #speaker:scientist2
+#wait:1
+Kámo, ty jseš fakt mrdka z krtka. #speaker:player
 -> DONE
