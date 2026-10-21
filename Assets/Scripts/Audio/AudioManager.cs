@@ -31,7 +31,7 @@ public class AudioManager : MonoBehaviour
             return;
         }
         instance = this;
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         soundDictionary = new Dictionary<string, Sound>();
         foreach (Sound s in sounds)

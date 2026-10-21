@@ -87,10 +87,10 @@ Tenhle šnek je o hodně vzácnější.
 Nepřišlo ti někdy divný, že každý šnek, co potkáš, má pravotočivou ulitu?
 
  *[No to teda. Jsem rád, že se tomu konečně začli vědci věnovat a neztrácejí čas třeba léčbou rakoviny...]
-    To děláme o víkendu #speaker:scientist
+    To děláme o víkendu. #speaker:scientist
     -> snail
  *[Chceš se zeptat ještě jednou?] 
- Ne #speaker:scientist
+ Ne. #speaker:scientist
  -> snail
  *[No.. Kája o tom jednou blebtala, ale moc jsem ji neposlouchal]
  Bez komentáře. #speaker:scientist
@@ -99,7 +99,7 @@ Nepřišlo ti někdy divný, že každý šnek, co potkáš, má pravotočivou u
  === snail ===
  #wait:0.5
  No, není pravda, že každý šnek je pravotočivý. Existují i levotočiví šneci, právě jako náš Jeremy II. Taky se jim říká sinistrální. Docela cool, ne?
-Může za špatná exprese Lsdia1 genu, což se stane asi u jednoho z 50 000 šneků.
+Může za to špatná exprese Lsdia1 genu, což se stane asi u jednoho z 50 000 šneků.
 Je to vlastně takový plží ekvivalent situs inversus, což je to, když má člověk zrcadlově orgány v těle.
 Doufáme, že Jeremy II by nám pomohl v porozumění této anomálie.
 
@@ -129,11 +129,12 @@ Počkej, to vů- #speaker:player
 
 === terrarium ===
 #scene:blackout
-#wait:1
+#wait:2
 #scene:terrarium
-#wait:0.5
-Je ti něco? #speaker:scientist
-Je mu hodně #speaker:scientist2
 #wait:1
+... #speaker:scientist
+Je ti něco?
+Je mu hodně. #speaker:scientist2
+#wait:0.5
 Kámo, ty jseš fakt mrdka z krtka. #speaker:player
 -> DONE

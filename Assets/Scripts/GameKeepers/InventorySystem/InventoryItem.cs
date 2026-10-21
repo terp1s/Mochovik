@@ -17,6 +17,7 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
 
     protected CanvasGroup canvasGroup;
     protected Transform originalParent;
+    protected Canvas rootCanvas;
 
 
     [HideInInspector] public bool wasPlaced = false;
@@ -29,6 +30,7 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
         GetComponent<Image>().preserveAspect = true;
         UiRectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();
+        rootCanvas = GetComponentInParent<Canvas>();
         descriptionPanel = FindAnyObjectByType<ItemDetailPanel>(FindObjectsInactive.Include);
     }
 
@@ -52,7 +54,14 @@ public abstract class InventoryItem : MonoBehaviour, IBeginDragHandler, IDragHan
 
     public virtual void OnDrag(PointerEventData eventData)
     {
-        UiRectTransform.anchoredPosition += eventData.delta;
+        if (rootCanvas != null)
+        {
+            UiRectTransform.anchoredPosition += eventData.delta / rootCanvas.scaleFactor;
+        }
+        else
+        {
+            UiRectTransform.anchoredPosition += eventData.delta;
+        }
     }
 
     public virtual void OnEndDrag(PointerEventData eventData)
